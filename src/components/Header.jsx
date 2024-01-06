@@ -1,38 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Line from "./Line";
 // import like from "../assets/like.png";
-// import shoppingCart from "../assets/shoppingCart.png";
+import shoppingCart from "../assets/shoppingCart.png";
 
 function Header() {
   return (
-    <header className="flex justify-between">
+    <header className="flex justify-between h-20 items-center	 relative">
       <div>
-        <p className="font-bold	text-3xl">Exclusive</p>
+        <p className="font-semibold	text-3xl">Exclusive</p>
       </div>
       <div>
         <ul className="flex gap-5">
-          <Link to="/home" className="text-xl text-[#363738]">
+          <NavLink to="/" className="text-xl text-[#363738]">
             Home
-          </Link>
-          <Link to="/Contact" className="text-xl text-[#363738]">
+          </NavLink>
+          <NavLink to="/Contact" className="text-xl text-[#363738]">
             Contact
-          </Link>
-          <Link to="/About" className="text-xl text-[#363738]">
+          </NavLink>
+          <NavLink to="/About" className="text-xl text-[#363738]">
             About
-          </Link>
-          <Link to="/signUp" className="text-xl text-[#363738]">
+          </NavLink>
+          <NavLink to="/signUp" className="text-xl text-[#363738]">
             Sign Up
-          </Link>
+          </NavLink>
         </ul>
       </div>
-      <div>
+      <div className="flex justify-between gap-2">
         <input
           type="search"
-          placeholder="what are you looking for"
-          className="w-60 h-12  bg-[#F5F5F5] font-semibold	"
+          placeholder="what are you looking for?"
+          className="w-56 h-10  bg-[#F5F5F5] font-semibold text-sm	text-center outline-none	"
         />
-        {/* <img src={like} alt="like" className="w-28" /> */}
-        {/* <img src={shoppingCart} alt="like" className="w-5" /> */}
+        <img src={shoppingCart} className="w-6 h-6 self-center" alt="" />
       </div>
+      <Line />
     </header>
   );
 }
