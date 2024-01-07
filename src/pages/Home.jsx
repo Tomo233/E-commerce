@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import TopHeader from "../components/TopHeader";
 import Container from "../components/Container";
+import HeroSection from "../components/HeroSection";
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
       <Container>
         <TopHeader />
         <Header />
+        <HeroSection />
       </Container>
     </>
   );
