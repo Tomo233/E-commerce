@@ -1,9 +1,11 @@
+import HeroCarousel from "./HeroCarousel";
 import ProductNavigation from "./ProductNavigation";
 
 function HeroSection() {
   return (
-    <section className="h-96">
+    <section className="h-96 flex justify-between">
       <ProductNavigation />
+      <HeroCarousel />
     </section>
   );
 }
