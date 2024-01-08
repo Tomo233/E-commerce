@@ -3,7 +3,7 @@ import ProductNavigation from "./ProductNavigation";
 
 function HeroSection() {
   return (
-    <section className="h-96 flex justify-between">
+    <section className="flex justify-between gap-5">
       <ProductNavigation />
       <HeroCarousel />
     </section>

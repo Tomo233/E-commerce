@@ -11,7 +11,7 @@ function ProductNavigation() {
 
       template: (
         <>
-          <span className="text-xl">Woman&rsquo;s fashion</span>
+          <span className="text-2xl">Woman&rsquo;s fashion</span>
           <i
             className="pi pi-arrow-right"
             style={{ marginLeft: "5px", position: "absolute", top: "8px" }}
@@ -51,7 +51,7 @@ function ProductNavigation() {
       label: "Men's Fashion",
       template: (
         <>
-          <span className="text-xl">Man&rsquo;s fashion</span>
+          <span className="text-2xl">Man&rsquo;s fashion</span>
           <i
             className="pi pi-arrow-right"
             style={{ marginLeft: "5px", position: "absolute", top: "8px" }}
@@ -95,7 +95,7 @@ function ProductNavigation() {
         // Callback to run
         console.log("electronics");
       },
-      template: <span className="text-xl">Electronics</span>,
+      template: <span className="text-2xl">Electronics</span>,
     },
     {
       label: "Home & Lifestyle",
@@ -103,7 +103,7 @@ function ProductNavigation() {
       command: () => {
         // Callback to run
       },
-      template: <span className="text-xl">Home & Lifestyle </span>,
+      template: <span className="text-2xl">Home & Lifestyle </span>,
     },
     {
       label: "Medicine",
@@ -111,7 +111,7 @@ function ProductNavigation() {
       command: () => {
         // Callback to run
       },
-      template: <span className="text-xl">Medicine</span>,
+      template: <span className="text-2xl">Medicine</span>,
     },
     {
       label: "Sports & Outdoor",
@@ -119,7 +119,7 @@ function ProductNavigation() {
       command: () => {
         // Callback to run
       },
-      template: <span className="text-xl"> Sports & Outdoor</span>,
+      template: <span className="text-2xl"> Sports & Outdoor</span>,
     },
     {
       label: "Baby's & Toys",
@@ -129,7 +129,7 @@ function ProductNavigation() {
       },
       template: (
         <>
-          <span className="text-xl">Baby&rsquo;s & Toys</span>
+          <span className="text-2xl">Baby&rsquo;s & Toys</span>
         </>
       ),
     },
@@ -139,7 +139,7 @@ function ProductNavigation() {
       command: () => {
         // Callback to run
       },
-      template: <span className="text-xl">Groceries & Pets</span>,
+      template: <span className="text-2xl">Groceries & Pets</span>,
     },
     {
       label: "Health & Beauty",
@@ -147,17 +147,17 @@ function ProductNavigation() {
       command: () => {
         // Callback to run
       },
-      template: <span className="text-xl">Health & Beauty</span>,
+      template: <span className="text-2xl">Health & Beauty</span>,
     },
   ];
 
   return (
-    <div className="relative w-56 flex">
+    <div className="relative w-80 flex">
       <MegaMenu
         model={items}
         orientation="verticaly"
         breakpoint="960px"
-        className="w-96 mt-5 bg-white cursor-pointer "
+        className="w-96 mt-5  bg-white cursor-pointer "
       />
       <HeroSectionLine />
     </div>

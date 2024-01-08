@@ -1,25 +1,38 @@
+import { useState, useEffect } from "react";
 import { Carousel } from "primereact/carousel";
 import "primereact/resources/primereact.min.css";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primeicons/primeicons.css";
-import images from "../assets/images.jpg";
+import phone from "../assets/phone.png";
 
 function HeroCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const items = [
     {
-      src: "../assets/images",
+      src: "../assets/phone.png",
       alt: "Image 1",
     },
-    { src: "path/to/image2.jpg", alt: "Image 2" },
-    { src: "path/to/image3.jpg", alt: "Image 3" },
+    { src: "../assets/phone.png", alt: "Image 2" },
+    { src: "../assets/phone.png", alt: "Image 3" },
   ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
+    }, 3000); // Change interval in milliseconds (e.g., 3000 for 3 seconds)
+
+    return () => clearInterval(intervalId);
+  }, [items.length]);
+
   return (
     <Carousel
       value={items}
+      page={activeIndex} // Use page instead of activeIndex
+      circular
       className=""
       itemTemplate={(item) => (
         <div className="mt-10">
-          <img src={images} alt={item.alt} />
+          <img src={phone} alt={item.alt} className="w-full" />
         </div>
       )}
     />

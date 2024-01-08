@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Include PrimeReact styles */
+@import "~primeicons/primeicons.css";
+@import "~primereact/resources/themes/saga-blue/theme.css";
+@import "~primereact/resources/primereact.css";
+@import "~primeflex/primeflex.css";
+@import "~primereact/carousel/carousel.css";
+
 .active {
   @apply border-b border-neutral-700;
 }
 
 .p-menuitem {
   @apply pb-4;
+}
+
+.p-carousel-container {
+  @apply overflow-hidden;
 }
