@@ -2,6 +2,7 @@ import { MegaMenu } from "primereact/megamenu";
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+import HeroSectionLine from "./HeroSectionLine";
 
 function ProductNavigation() {
   const items = [
@@ -118,7 +119,7 @@ function ProductNavigation() {
       command: () => {
         // Callback to run
       },
-      template: <span className="text-xl">Sports & Outdoor</span>,
+      template: <span className="text-xl"> Sports & Outdoor</span>,
     },
     {
       label: "Baby's & Toys",
@@ -151,14 +152,15 @@ function ProductNavigation() {
   ];
 
   return (
-    <>
+    <div className="relative w-56 flex">
       <MegaMenu
         model={items}
         orientation="verticaly"
         breakpoint="960px"
         className="w-96 mt-5 bg-white cursor-pointer "
       />
-    </>
+      <HeroSectionLine />
+    </div>
   );
 }
 

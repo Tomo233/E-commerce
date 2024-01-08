@@ -5,3 +5,7 @@
 .active {
   @apply border-b border-neutral-700;
 }
+
+.p-menuitem {
+  @apply pb-4;
+}

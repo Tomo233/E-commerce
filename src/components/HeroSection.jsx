@@ -2,7 +2,7 @@ import ProductNavigation from "./ProductNavigation";
 
 function HeroSection() {
   return (
-    <section>
+    <section className="h-96">
       <ProductNavigation />
     </section>
   );
