@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { Carousel } from "primereact/carousel";
+import { Carousel as ReactCarousel } from "primereact/carousel";
 import "primereact/resources/primereact.min.css";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primeicons/primeicons.css";
 import phone from "../assets/phone.png";
 
-function HeroCarousel() {
+function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const items = [
     {
@@ -25,7 +25,7 @@ function HeroCarousel() {
   }, [items.length]);
 
   return (
-    <Carousel
+    <ReactCarousel
       value={items}
       page={activeIndex} // Use page instead of activeIndex
       circular
@@ -39,4 +39,4 @@ function HeroCarousel() {
   );
 }
 
-export default HeroCarousel;
+export default Carousel;
