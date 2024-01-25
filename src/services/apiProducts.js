@@ -5,6 +5,7 @@ export async function getAllProducts() {
   if (!res.ok) throw Error(`Something went wrong with products`);
 
   const data = await res.json();
+  // console.log(data);
   return data;
 }
 

@@ -13,3 +13,7 @@
 .p-carousel-container {
   @apply overflow-hidden;
 }
+
+.p-rating-icon {
+  @apply text-yellow-500;
+}
