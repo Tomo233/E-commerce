@@ -17,8 +17,16 @@ export async function getSomeProducts(number) {
   // console.log(data);
   return data;
 }
-export async function getOneProducts() {
+export async function getOneProduct() {
   const res = await fetch(`${API_URL}/2`);
+  if (!res.ok) throw Error(`Something went wrong with products`);
+
+  const data = await res.json();
+  console.log(data);
+  //   return data;
+}
+export async function getCategories() {
+  const res = await fetch(`${API_URL}/?sort=desc`);
   if (!res.ok) throw Error(`Something went wrong with products`);
 
   const data = await res.json();
