@@ -1,42 +1,59 @@
-import { useState, useEffect } from "react";
-import { Carousel as ReactCarousel } from "primereact/carousel";
-import "primereact/resources/primereact.min.css";
-import "primereact/resources/themes/saga-blue/theme.css";
-import "primeicons/primeicons.css";
-import phone from "../assets/phone.png";
+/* eslint-disable react/prop-types */
+import { Carousel } from "primereact/carousel";
+import Rating from "./Rating";
 
-function Carousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const items = [
-    {
-      src: "../assets/phone.png",
-      alt: "Image 1",
-    },
-    { src: "../assets/phone.png", alt: "Image 2" },
-    { src: "../assets/phone.png", alt: "Image 3" },
-  ];
+export default function ResponsiveDemo({ itemProducts }) {
+  const products = itemProducts;
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % items.length);
-    }, 3000); // Change interval in milliseconds (e.g., 3000 for 3 seconds)
+  const productTemplate = (product) => {
+    const itemRating = product.rating?.rate.toFixed();
 
-    return () => clearInterval(intervalId);
-  }, [items.length]);
+    return (
+      <div className="flex items-center gap-4 mt-5 max-w-md">
+        <div className="mb-3">
+          <img src={product.image} className="w-36 h-36" alt={product.title} />
+        </div>
+        <div className="w-56">
+          <h4 className="font-medium">{product.title}</h4>
+          <h6 className="text-red-700 font-medium">${product.price}</h6>
+          <div className="mt-5 flex flex-wrap gap-2 justify-content-center"></div>
+          <Rating value={itemRating} />
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <ReactCarousel
-      value={items}
-      page={activeIndex} // Use page instead of activeIndex
-      circular
-      className=""
-      itemTemplate={(item) => (
-        <div className="mt-10">
-          <img src={phone} alt={item.alt} className="w-full" />
-        </div>
-      )}
-    />
+    <div className="card p-d-flex p-jc-center p-ai-center max-w-full">
+      <Carousel
+        value={products}
+        numVisible={3}
+        numScroll={3}
+        responsiveOptions={[
+          {
+            breakpoint: "575px",
+            numVisible: 1,
+            numScroll: 1,
+          },
+          {
+            breakpoint: "767px",
+            numVisible: 2,
+            numScroll: 1,
+          },
+          {
+            breakpoint: "1199px",
+            numVisible: 3,
+            numScroll: 1,
+          },
+          {
+            breakpoint: "1400px",
+            numVisible: 4,
+            numScroll: 1,
+          },
+        ]}
+        // circular
+        itemTemplate={productTemplate}
+      />
+    </div>
   );
 }
-
-export default Carousel;

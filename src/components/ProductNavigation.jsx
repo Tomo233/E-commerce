@@ -2,7 +2,7 @@ import { MegaMenu } from "primereact/megamenu";
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
-import HeroSectionLine from "./HeroSectionLine";
+import VerticalLine from "./VerticalLine";
 
 function ProductNavigation() {
   const items = [
@@ -159,7 +159,7 @@ function ProductNavigation() {
         breakpoint="960px"
         className="w-96 mt-5  bg-white cursor-pointer "
       />
-      <HeroSectionLine />
+      <VerticalLine />
     </div>
   );
 }

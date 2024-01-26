@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import HeaderLine from "./HeaderLine";
+import Line from "./Line";
 // import like from "../assets/like.png";
 import shoppingCart from "../assets/shoppingCart.png";
 
@@ -35,7 +35,7 @@ function Header() {
         />
         <img src={shoppingCart} className="w-6 h-6 self-center" alt="" />
       </div>
-      <HeaderLine />
+      <Line />
     </header>
   );
 }
