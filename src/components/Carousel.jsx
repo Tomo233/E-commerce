@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 import { Carousel } from "primereact/carousel";
 import Rating from "./Rating";
+import { getSomeProducts } from "../services/apiProducts";
+import { useLoaderData } from "react-router-dom";
 
-export default function ResponsiveDemo({ itemProducts }) {
-  const products = itemProducts;
+export default function ResponsiveDemo() {
+  const products = useLoaderData();
 
   const productTemplate = (product) => {
     const itemRating = product.rating?.rate.toFixed();
 
     return (
-      <div className="flex items-center gap-4 mt-5 max-w-md">
+      <div className="flex items-center justify-center gap-4 mt-5 max-w-md">
         <div className="mb-3">
           <img src={product.image} className="w-36 h-36" alt={product.title} />
         </div>
@@ -24,7 +26,7 @@ export default function ResponsiveDemo({ itemProducts }) {
   };
 
   return (
-    <div className="card p-d-flex p-jc-center p-ai-center max-w-full">
+    <div className="card p-d-flex p-jc-center p-ai-center max-w-full mt-3">
       <Carousel
         value={products}
         numVisible={3}
@@ -56,4 +58,8 @@ export default function ResponsiveDemo({ itemProducts }) {
       />
     </div>
   );
+}
+export function loader() {
+  const products = getSomeProducts(9);
+  return products;
 }

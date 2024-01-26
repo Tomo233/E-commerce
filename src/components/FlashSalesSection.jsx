@@ -1,13 +1,8 @@
 import Interval from "./Interval";
 import { Button } from "primereact/button";
-// import FlashSalesProduct from "./FlashSalesProduct";
-import { getSomeProducts } from "../services/apiProducts";
-import { useLoaderData } from "react-router-dom";
 import Carousel from "./Carousel";
 
 function FlashSalesSection() {
-  const products = useLoaderData();
-
   return (
     <section className="mt-12">
       <p className="text-red-500 font-bold border-l-8  border-red-600 pl-2 ">
@@ -33,19 +28,10 @@ function FlashSalesSection() {
           />
         </div>
       </div>
-      {/* <ul className="flex justify-between gap-2 mt-5 w-screen-lg">
-        {products.map((item) => (
-          <FlashSalesProduct item={item} key={item.id} />
-        ))}
-      </ul> */}
-      <Carousel itemProducts={products} />
+
+      <Carousel />
     </section>
   );
-}
-
-export function loader() {
-  const products = getSomeProducts(9);
-  return products;
 }
 
 export default FlashSalesSection;
