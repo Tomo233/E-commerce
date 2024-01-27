@@ -9,8 +9,10 @@ export async function getAllProducts() {
   return data;
 }
 
-export async function getSomeProducts(number) {
-  const res = await fetch(`${API_URL}?limit=${number}`);
+export async function getSomeProducts(number, sorted = false) {
+  const res = await fetch(
+    `${API_URL}?limit=${number}${sorted && "&sort=desc"}`
+  );
   if (!res.ok) throw Error(`Something went wrong with products`);
 
   const data = await res.json();
