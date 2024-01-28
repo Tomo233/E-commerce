@@ -10,7 +10,7 @@ function FlashSalesSection() {
     <section className="my-12 relative">
       <RedBorder>Today&rsquo;s</RedBorder>
       <div className="flex justify-between">
-        <h2 className="text-3xl font-bold ">Flash Sales</h2>
+        <h2 className="text-3xl font-bold">Flash Sales</h2>
         <Interval />
         <div className="flex gap-4">
           <ArrowButton
@@ -30,7 +30,7 @@ function FlashSalesSection() {
         </div>
       </div>
       <Carousel />
-      <Button>View All Products </Button>
+      <Button type="primary">View All Products </Button>
       <Line />
     </section>
   );

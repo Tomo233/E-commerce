@@ -7,7 +7,6 @@ import SignUp from "./pages/SignUp";
 import AppLayout from "./pages/AppLayout";
 import ErrorPage from "./pages/ErrorPage";
 import { loader as someProductsLoader } from "./components/Carousel";
-
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
