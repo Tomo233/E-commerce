@@ -1,9 +1,9 @@
-import Interval from "./Interval";
+import Interval from "../../components/Interval";
 import { Button as ArrowButton } from "primereact/button";
-import Carousel from "./Carousel";
-import Button from "./Button";
-import Line from "./Line";
-import RedBorder from "./RedBorder";
+import Carousel from "../../components/Carousel";
+import Button from "../../components/Button";
+import Line from "../../components/Line";
+import RedBorder from "../../components/RedBorder";
 
 function FlashSalesSection() {
   return (

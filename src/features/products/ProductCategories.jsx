@@ -1,10 +1,10 @@
-import RedBorder from "./RedBorder";
-import camera from "../assets/camera.png";
-import cellphone from "../assets/cellphone.png";
-import watch from "../assets/watch.png";
-import headphones from "../assets/headphones.png";
-import gamepad from "../assets/gamepad.png";
-import Line from "./Line";
+import RedBorder from "../../components/RedBorder";
+import camera from "../../assets/camera.png";
+import cellphone from "../../assets/cellphone.png";
+import watch from "../../assets/watch.png";
+import headphones from "../../assets/headphones.png";
+import gamepad from "../../assets/gamepad.png";
+import Line from "../../components/Line";
 
 function Categories() {
   return (

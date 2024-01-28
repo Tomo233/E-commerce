@@ -1,5 +1,5 @@
-import RedBorder from "./RedBorder";
-import Button from "./Button";
+import RedBorder from "../../components/RedBorder";
+import Button from "../../components/Button";
 
 function BestSellingProducts() {
   return (

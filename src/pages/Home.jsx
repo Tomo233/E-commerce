@@ -1,14 +1,14 @@
-import HeroSection from "../components/HeroSection";
-import FlashSalesSection from "../components/FlashSalesSection";
-import Categories from "../components/Categories";
-import BestSellingProducts from "../components/BestSellingProducts";
+import HeroPhoneSection from "../features/products/HeroPhoneSection";
+import FlashSalesProducts from "../features/products/FlashSalesProducts";
+import ProductCategories from "../features/products/ProductCategories";
+import BestSellingProducts from "../features/products/BestSellingProducts";
 
 function Home() {
   return (
     <>
-      <HeroSection />
-      <FlashSalesSection />
-      <Categories />
+      <HeroPhoneSection />
+      <FlashSalesProducts />
+      <ProductCategories />
       <BestSellingProducts />
     </>
   );
