@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import Line from "./Line";
 // import like from "../assets/like.png";
-import shoppingCart from "../assets/shoppingCart.png";
 
 function Header() {
   return (
@@ -33,7 +32,9 @@ function Header() {
           placeholder="what are you looking for?"
           className="w-56 h-10  bg-[#F5F5F5] font-semibold text-sm	text-center outline-none	"
         />
-        <img src={shoppingCart} className="w-6 h-6 self-center" alt="" />
+        <button className="">
+          <i className="pi pi-shopping-cart text-2xl"></i>
+        </button>
       </div>
       <Line />
     </header>
