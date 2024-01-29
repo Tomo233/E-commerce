@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import TopHeader from "../components/TopHeader";
+
 function AppLayout() {
   return (
     <div>

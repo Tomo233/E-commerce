@@ -1,13 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Carousel } from "primereact/carousel";
 import Rating from "./Rating";
-import { useGetSomeProductsQuery } from "../features/api/apiSlice";
-import Loader from "./Loader";
-// import Error from "./Error";
 
-export default function ResponsiveDemo() {
-  const { data: products, error, isLoading } = useGetSomeProductsQuery(5);
-
+export default function ResponsiveDemo({ products }) {
   const productTemplate = (product) => {
     const itemRating = product?.rating?.rate.toFixed();
 
@@ -26,8 +21,8 @@ export default function ResponsiveDemo() {
     );
   };
 
-  if (isLoading) return <Loader />;
-  console.log(error);
+  // if (isLoading) return <Loader />;
+  // console.log(error);
   return (
     <div className="card p-d-flex p-jc-center p-ai-center max-w-full mt-3">
       <Carousel
