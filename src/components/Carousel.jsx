@@ -1,11 +1,19 @@
 /* eslint-disable react/prop-types */
 import { Carousel } from "primereact/carousel";
 import Rating from "./Rating";
-import { getSomeProducts } from "../services/apiProducts";
-import { useLoaderData } from "react-router-dom";
+// import { getSomeProducts } from "../services/apiProducts";
+// import { useLoaderData } from "react-router-dom";
 
 export default function ResponsiveDemo() {
-  const products = useLoaderData();
+  // const products = useLoaderData();
+
+  const products = [
+    {
+      title: "tomtomdao",
+      image: "3210-39i1",
+      itemRating: 5,
+    },
+  ];
 
   const productTemplate = (product) => {
     const itemRating = product.rating?.rate.toFixed();
@@ -60,7 +68,7 @@ export default function ResponsiveDemo() {
     </div>
   );
 }
-export function loader() {
-  const products = getSomeProducts(9);
-  return products;
-}
+// export function loader() {
+//   const products = getSomeProducts(9);
+//   return products;
+// }
