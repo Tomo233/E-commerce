@@ -5,17 +5,15 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import SignUp from "./pages/SignUp";
 import AppLayout from "./pages/AppLayout";
-import ErrorPage from "./pages/ErrorPage";
-// import { loader as someProductsLoader } from "./components/Carousel";
+import Error from "./pages/Error";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
         element: <Home />,
-        // loader: someProductsLoader,
       },
       {
         path: "/Contact",

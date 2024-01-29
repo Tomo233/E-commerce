@@ -1,9 +1,6 @@
 import RedBorder from "../../components/RedBorder";
 import Button from "../../components/Button";
-import { useGetAllProductsQuery } from "../api/apiSlice";
 function BestSellingProducts() {
-  const { data } = useGetAllProductsQuery();
-  console.log(data);
   return (
     <section className="mb-20">
       <RedBorder>This Month</RedBorder>

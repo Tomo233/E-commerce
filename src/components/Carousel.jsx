@@ -1,22 +1,15 @@
 /* eslint-disable react/prop-types */
 import { Carousel } from "primereact/carousel";
 import Rating from "./Rating";
-// import { getSomeProducts } from "../services/apiProducts";
-// import { useLoaderData } from "react-router-dom";
+import { useGetSomeProductsQuery } from "../features/api/apiSlice";
+import Loader from "./Loader";
+// import Error from "./Error";
 
 export default function ResponsiveDemo() {
-  // const products = useLoaderData();
-
-  const products = [
-    {
-      title: "tomtomdao",
-      image: "3210-39i1",
-      itemRating: 5,
-    },
-  ];
+  const { data: products, error, isLoading } = useGetSomeProductsQuery(5);
 
   const productTemplate = (product) => {
-    const itemRating = product.rating?.rate.toFixed();
+    const itemRating = product?.rating?.rate.toFixed();
 
     return (
       <div className="flex items-center justify-center gap-4 mt-5 max-w-md">
@@ -33,10 +26,11 @@ export default function ResponsiveDemo() {
     );
   };
 
+  if (isLoading) return <Loader />;
+  console.log(error);
   return (
     <div className="card p-d-flex p-jc-center p-ai-center max-w-full mt-3">
       <Carousel
-        circular
         value={products}
         numVisible={3}
         numScroll={3}
@@ -62,13 +56,9 @@ export default function ResponsiveDemo() {
             numScroll: 1,
           },
         ]}
-        // circular
+        circular
         itemTemplate={productTemplate}
       />
     </div>
   );
 }
-// export function loader() {
-//   const products = getSomeProducts(9);
-//   return products;
-// }
