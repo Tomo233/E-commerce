@@ -9,7 +9,7 @@ import Loader from "../../components/Loader";
 import Error from "../../pages/Error";
 
 function FlashSalesSection() {
-  const { data: someProducts, isLoading, error } = useGetSomeProductsQuery(5);
+  const { data, isLoading, error } = useGetSomeProductsQuery(5);
 
   if (isLoading) return <Loader />;
   if (error) return <Error />;
@@ -37,7 +37,7 @@ function FlashSalesSection() {
           />
         </div>
       </div>
-      <Carousel products={someProducts} />
+      <Carousel products={data} />
       <Button type="primary">View All Products </Button>
       <Line />
     </section>
