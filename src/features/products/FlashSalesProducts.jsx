@@ -4,16 +4,9 @@ import Carousel from "../../components/Carousel";
 import Button from "../../components/Button";
 import Line from "../../components/Line";
 import RedBorder from "../../components/RedBorder";
-import { useGetSomeProductsQuery } from "../api/apiSlice";
-import Loader from "../../components/Loader";
-import Error from "../../pages/Error";
+import ProminentProducts from "../../components/ProminentProducts";
 
 function FlashSalesSection() {
-  const { data, isLoading, error } = useGetSomeProductsQuery(5);
-
-  if (isLoading) return <Loader />;
-  if (error) return <Error />;
-
   return (
     <section className="my-12 relative">
       <RedBorder>Today&rsquo;s</RedBorder>
@@ -37,7 +30,7 @@ function FlashSalesSection() {
           />
         </div>
       </div>
-      <Carousel products={data} />
+      <ProminentProducts />
       <Button type="primary">View All Products </Button>
       <Line />
     </section>
