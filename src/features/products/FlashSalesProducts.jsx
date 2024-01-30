@@ -1,6 +1,5 @@
 import Interval from "../../components/Interval";
 import { Button as ArrowButton } from "primereact/button";
-import Carousel from "../../components/Carousel";
 import Button from "../../components/Button";
 import Line from "../../components/Line";
 import RedBorder from "../../components/RedBorder";

@@ -2,12 +2,13 @@
 /* eslint-disable no-undef */
 function Button({ children, type = null }) {
   const base =
-    "bg-red-500 text-slate-200 text-md font-medium rounded-sm px-8 py-4 ";
+    "bg-red-500 text-slate-200 text-md font-medium rounded-sm px-12 py-4";
   const styles = {
-    primary: base + "my-8",
+    primary: base + " bg-red-500 my-8",
+    green: base + " bg-green-500 mt-10",
   };
   return (
-    <div className="flex justify-center">
+    <div className={styles[type] === styles.primary && "flex justify-center"}>
       <button className={!type ? base : styles[type]}>{children}</button>
     </div>
   );
