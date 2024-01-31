@@ -7,7 +7,7 @@ export default function ResponsiveDemo({ products }) {
     const itemRating = product?.rating?.rate?.toFixed();
 
     return (
-      <div className="flex items-center justify-center gap-4 mt-5 max-w-md">
+      <div className="flex items-center justify-center gap-4 mt-5 max-w-md cursor-pointer">
         <div className="mb-3">
           <img
             src={product?.image}

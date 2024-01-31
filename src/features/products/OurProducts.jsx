@@ -1,10 +1,10 @@
 import RedBorder from "../../components/RedBorder";
 import { useGetSomeProductsQuery } from "../api/apiSlice";
-import Carousel from "../../components/Carousel";
 import Loader from "../../components/Loader";
 import Error from "../../pages/Error";
+import OurItem from "./OurItem";
 function OurProducts() {
-  const { data, error, isLoading } = useGetSomeProductsQuery(16);
+  const { data, error, isLoading } = useGetSomeProductsQuery(8);
 
   if (isLoading) return <Loader />;
   if (error) return <Error />;
@@ -12,7 +12,11 @@ function OurProducts() {
     <section className="my-20">
       <RedBorder>Our Products</RedBorder>
       <h2 className="text-3xl font-bold ">Explore Our Products</h2>
-      <Carousel products={data} />
+      <div className="flex items-center justify-between flex-wrap gap-8 mt-10">
+        {data.map((product) => (
+          <OurItem product={product} key={product.id} />
+        ))}
+      </div>
     </section>
   );
 }

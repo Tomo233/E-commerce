@@ -8,7 +8,7 @@ export const productsApi = createApi({
       query: () => "products",
     }),
     getSomeProducts: builder.query({
-      query: (limit) => `products?limit=${limit}`,
+      query: (limit) => `products?limit=${limit}&sort=desc`,
     }),
   }),
 });
