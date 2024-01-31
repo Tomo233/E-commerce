@@ -24,8 +24,9 @@ export default function ResponsiveDemo({ products }) {
       </div>
     );
   };
+
   return (
-    <div className="card p-d-flex p-jc-center p-ai-center max-w-full mt-3">
+    <div className="card p-d-flex p-jc-center p-ai-center max-w-full mt-3 ">
       <Carousel
         value={products}
         numVisible={3}
