@@ -11,7 +11,7 @@ function Featured() {
       <h2 className="text-3xl font-bold">New Arrival</h2>
 
       <div className="grid grid-cols-2 gap-5 my-12">
-        <div className="bg-stone-900 p-4 row-span-3 relative">
+        <div className="bg-stone-900 p-4 row-span-3 relative rounded-md">
           <div className="absolute bottom-10 z-10 w-64 left-14 max-w-72 mb-3">
             <h3 className="text-stone-100 text-2xl font-semibold tracking-wide">
               PlayStation 5
@@ -29,7 +29,7 @@ function Featured() {
           />
         </div>
 
-        <div className="bg-stone-900 p-4 flex h-64 items-end relative">
+        <div className="bg-stone-900 p-4 flex h-64 items-end relative rounded-md">
           <div className="max-w-72 mb-3">
             <h3 className="text-stone-100 text-2xl font-semibold tracking-wide">
               Women’s Collections
@@ -48,7 +48,7 @@ function Featured() {
         </div>
 
         <div className="flex justify-between">
-          <div className="bg-stone-900 p-4 w-80 relative">
+          <div className="bg-stone-900 p-4 w-80 relative rounded-md">
             <img
               src={speakers}
               alt="speakers"
@@ -65,7 +65,7 @@ function Featured() {
             </div>
           </div>
 
-          <div className="bg-stone-900 p-4 w-80 h-80 relative">
+          <div className="bg-stone-900 p-4 w-80 h-80 relative rounded-md">
             <img
               src={perfume}
               alt="perfume"
