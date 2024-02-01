@@ -12,15 +12,16 @@ function Featured() {
 
       <div className="grid grid-cols-2 gap-5 my-12">
         <div className="bg-stone-900 p-4 row-span-3 relative">
-          <div className="absolute bottom-10 z-10 w-64 left-20">
-            <h3 className="text-stone-100 text-2xl font-semibold">
+          <div className="absolute bottom-10 z-10 w-64 left-14 max-w-72 mb-3">
+            <h3 className="text-stone-100 text-2xl font-semibold tracking-wide">
               PlayStation 5
             </h3>
-            <p className="text-stone-100">
+            <p className="text-stone-100 tracking-wide my-2">
               Black and White version of the PS5 coming out on sale.
             </p>
-            <p className="text-stone-100 underline">Shop Now</p>
+            <p className="text-stone-100 underline font-semibold">Shop Now</p>
           </div>
+
           <img
             src={ps5}
             alt="ps5"
@@ -36,7 +37,7 @@ function Featured() {
             <p className="text-stone-100 tracking-wide my-2">
               Featured woman collections that give you another vibe. Shop Now
             </p>
-            <p className="text-stone-100 underline">Shop Now</p>
+            <p className="text-stone-100 underline font-semibold">Shop Now</p>
           </div>
 
           <img
@@ -53,12 +54,14 @@ function Featured() {
               alt="speakers"
               className="mx-auto absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             />
-            <div className="absolute bottom-10 left-10">
-              <h3 className="text-stone-100 text-2xl font-semibold">
+            <div className="absolute bottom-10 left-10 max-w-72">
+              <h3 className="text-stone-100 text-2xl font-semibold tracking-wide">
                 Speakers
               </h3>
-              <p className="text-stone-100">Amazon wireless speakers</p>
-              <p className="text-stone-100 underline z-10">Shop Now</p>
+              <p className="text-stone-100 tracking-wide my-1">
+                Amazon wireless speakers
+              </p>
+              <p className="text-stone-100 underline font-semibold">Shop Now</p>
             </div>
           </div>
 
@@ -69,9 +72,13 @@ function Featured() {
               className="mx-auto absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             />
             <div className="absolute bottom-10 left-10">
-              <h3 className="text-stone-100 text-2xl font-semibold">Perfume</h3>
-              <p className="text-stone-100">GUCCI INTENSE OUD EDP</p>
-              <p className="text-stone-100 underline">Shop Now</p>
+              <h3 className="text-stone-100 text-2xl font-semibold tracking-wide">
+                Perfume
+              </h3>
+              <p className="text-stone-100 tracking-wide my-1">
+                GUCCI INTENSE OUD EDP
+              </p>
+              <p className="text-stone-100 underline font-semibold">Shop Now</p>
             </div>
           </div>
         </div>
