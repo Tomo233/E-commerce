@@ -4,6 +4,7 @@ import ProductCategories from "../features/products/ProductCategories";
 import BestSellingProducts from "../features/products/BestSellingProducts";
 import SpeakerProduct from "../features/products/SpeakerProduct";
 import OurProducts from "../features/products/OurProducts";
+import Featured from "../features/products/Featured";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       <BestSellingProducts />
       <SpeakerProduct />
       <OurProducts />
+      <Featured />
     </>
   );
 }
