@@ -3,7 +3,7 @@ import googlePlay from "../assets/googlePlay.png";
 import appStore from "../assets/appStore.png";
 function Footer() {
   return (
-    <footer className="bg-stone-950">
+    <footer className="bg-stone-950 pt-10">
       <div className="mx-auto w-5/6 flex justify-between">
         <div className="mt-5">
           <h3 className="text-stone-100 text-2xl font-semibold mt-3">
@@ -16,7 +16,7 @@ function Footer() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="bg-stone-950 border py-2 text-center mt-3 border-stone-100"
+            className="bg-stone-950 border py-2 text-center mt-3 border-stone-100 text-stone-100 rounded-sm"
           />
         </div>
         <div className="mt-5">
