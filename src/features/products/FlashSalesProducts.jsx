@@ -30,7 +30,7 @@ function FlashSalesSection() {
         </div>
       </div>
       <ProminentProducts />
-      <Button type="primary">View All Products </Button>
+      <Button type="secondary">View All Products </Button>
       <Line />
     </section>
   );
