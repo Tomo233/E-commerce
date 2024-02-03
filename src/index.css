@@ -17,3 +17,7 @@
 .p-rating-icon {
   @apply text-yellow-500;
 }
+
+/* .p-carousel-items-container {
+  @apply flex items-center;
+} */

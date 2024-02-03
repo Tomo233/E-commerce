@@ -3,7 +3,6 @@ import Rating from "../../components/Rating";
 /* eslint-disable react/prop-types */
 function OurItem({ product }) {
   const itemRating = product?.rating?.rate?.toFixed();
-  console.log(product);
   return (
     <div className="w-80 flex flex-col items-center justify-center cursor-pointer">
       <div className="pb-3 flex items-center justify-center">
