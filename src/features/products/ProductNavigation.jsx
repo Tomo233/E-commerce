@@ -2,7 +2,7 @@ import { MegaMenu } from "primereact/megamenu";
 import "primereact/resources/themes/bootstrap4-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
-import VerticalLine from "./VerticalLine";
+import VerticalLine from "../../components/VerticalLine";
 
 const items = [
   {

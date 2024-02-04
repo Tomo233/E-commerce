@@ -3,7 +3,7 @@ import { Button as ArrowButton } from "primereact/button";
 import Button from "../../components/Button";
 import Line from "../../components/Line";
 import RedBorder from "../../components/RedBorder";
-import ProminentProducts from "../../components/ProminentProducts";
+import ProminentProducts from "./ProminentProducts";
 
 function FlashSalesSection() {
   return (

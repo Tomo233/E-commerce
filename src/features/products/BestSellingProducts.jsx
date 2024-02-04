@@ -1,6 +1,6 @@
 import RedBorder from "../../components/RedBorder";
 import Button from "../../components/Button";
-import ProminentProducts from "../../components/ProminentProducts";
+import ProminentProducts from "./ProminentProducts";
 function BestSellingProducts() {
   return (
     <section className="mb-20">

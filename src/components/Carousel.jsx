@@ -32,7 +32,6 @@ export default function ResponsiveDemo({ products }) {
           </div>
           <Rating value={itemRating} />
         </div>
-
         <div
           className={`bg-stone-950 text-sm text-stone-100 font-semibold w-80 h-10 absolute bottom-0 flex items-center justify-center transition-all  duration-700 ${
             isHovered ? "opacity-100" : "opacity-0"

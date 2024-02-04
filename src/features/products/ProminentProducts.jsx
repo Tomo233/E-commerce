@@ -1,7 +1,7 @@
-import Carousel from "./Carousel";
-import { useGetSomeProductsQuery } from "../features/api/apiSlice";
-import Error from "../pages/Error";
-import Loader from "./Loader";
+import Carousel from "../../components/Carousel";
+import { useGetSomeProductsQuery } from "../api/apiSlice";
+import Error from "../../pages/Error";
+import Loader from "../../components/Loader";
 
 function ProminentProducts() {
   const { data, isLoading, error } = useGetSomeProductsQuery(9);
