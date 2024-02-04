@@ -3,7 +3,7 @@ import { Button as ArrowButton } from "primereact/button";
 import Button from "../../components/Button";
 import Line from "../../components/Line";
 import RedBorder from "../../components/RedBorder";
-import ProminentProducts from "./ProminentProducts";
+import Carousel from "./Carousel";
 
 function FlashSalesSection() {
   return (
@@ -29,7 +29,7 @@ function FlashSalesSection() {
           />
         </div>
       </div>
-      <ProminentProducts />
+      <Carousel />
       <Button type="secondary">View All Products </Button>
       <Line />
     </section>

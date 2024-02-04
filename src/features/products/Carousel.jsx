@@ -1,10 +1,18 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/prop-types */
 import { Carousel } from "primereact/carousel";
-import Rating from "./Rating";
+import Rating from "../../components/Rating";
 import { useState } from "react";
+import { useGetSomeProductsQuery } from "../api/apiSlice";
+import Error from "../../pages/Error";
+import Loader from "../../components/Loader";
 
-export default function ResponsiveDemo({ products }) {
+export default function ResponsiveDemo() {
+  const { data: products, isLoading, error } = useGetSomeProductsQuery(9);
+
+  if (isLoading) return <Loader />;
+  if (error) return <Error />;
+
   const productTemplate = (product) => {
     const [isHovered, setIsHovered] = useState(false);
     const itemRating = product?.rating?.rate?.toFixed();

@@ -1,10 +1,10 @@
-import OneProductCarousel from "./OneProductCarousel";
+import PhoneCarousel from "./PhoneCarousel";
 import ProductNavigation from "./ProductNavigation";
 function HeroPhoneSection() {
   return (
     <section className="flex justify-between gap-5">
       <ProductNavigation />
-      <OneProductCarousel />
+      <PhoneCarousel />
     </section>
   );
 }
