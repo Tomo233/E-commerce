@@ -26,15 +26,18 @@ function Header() {
           </NavLink>
         </ul>
       </div>
-      <div className="flex justify-between gap-2">
+      <div className="flex justify-between gap-2 items-center">
         <input
           type="search"
           placeholder="what are you looking for?"
           className="w-56 h-10  bg-[#F5F5F5] font-semibold text-sm	text-center outline-none	"
         />
-        <button className="">
+        {/* <Link to="/cart">
           <i className="pi pi-shopping-cart text-2xl"></i>
-        </button>
+        </Link> */}
+        <Link to="/cart">
+          <i className="pi pi-shopping-cart text-2xl"></i>
+        </Link>
       </div>
       <Line />
     </header>

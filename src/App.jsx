@@ -6,6 +6,7 @@ import About from "./pages/About";
 import SignUp from "./pages/SignUp";
 import AppLayout from "./pages/AppLayout";
 import Error from "./pages/Error";
+import Cart from "./features/cart/Cart";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -16,16 +17,20 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Contact",
+        path: "/contact",
         element: <Contact />,
       },
       {
-        path: "/About",
+        path: "/about",
         element: <About />,
       },
       {
-        path: "/SignUp",
+        path: "/signUp",
         element: <SignUp />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
