@@ -1,4 +1,3 @@
-import { Link, useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 
 function Cart() {
@@ -31,25 +30,11 @@ function Cart() {
       image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
     },
   ];
-  console.log(products);
-  // const navigate = useNavigate();
+
   return (
-    // <section className="mx-auto h-dvh">
-    //   <div className="bg-stone-200 flex justify-around  py-5 my-10">
-    //     <p className="text-sm text-stone-900 font-medium">Product</p>
-    //     <p className="text-sm text-stone-900 font-medium">Price</p>
-    //     <p className="text-sm text-stone-900 font-medium">Quantity</p>
-    //     <p className="text-sm text-stone-900 font-medium">Subtotal</p>
-    //   </div>
-    //   <ul>
-    //     {products.map((product) => (
-    //       <CartItem key={product.id} product={product} />
-    //     ))}
-    //   </ul>
-    // </section>
-    <section className="mx-auto h-dvh">
-      <div className="">
-        <div className="bg-stone-200 flex justify-around py-5 my-10">
+    <section className="h-dvh">
+      <div>
+        <div className="grid gap-40 grid-cols-4 bg-stone-200 py-5 my-10">
           <p className="text-sm text-stone-900 font-medium">Product</p>
           <p className="text-sm text-stone-900 font-medium">Price</p>
           <p className="text-sm text-stone-900 font-medium">Quantity</p>
