@@ -47,6 +47,14 @@ function Cart() {
           ))}
         </ul>
         <Button type="white">Return To Shop</Button>
+        <div className="flex mt-10 gap-5">
+          <input
+            type="text"
+            placeholder="Coupon Code"
+            className="border border-slate-400 text-center px-6 rounded-sm"
+          />
+          <Button type="primary">Apply Coupon</Button>
+        </div>
       </div>
     </section>
   );
