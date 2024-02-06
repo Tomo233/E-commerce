@@ -1,3 +1,4 @@
+import Button from "../../components/Button";
 import CartItem from "./CartItem";
 
 function Cart() {
@@ -45,6 +46,7 @@ function Cart() {
             <CartItem key={product.id} product={product} />
           ))}
         </ul>
+        <Button type="white">Return To Shop</Button>
       </div>
     </section>
   );
