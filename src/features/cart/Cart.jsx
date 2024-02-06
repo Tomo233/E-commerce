@@ -47,13 +47,34 @@ function Cart() {
           ))}
         </ul>
         <Button type="white">Return To Shop</Button>
-        <div className="flex mt-10 gap-5">
-          <input
-            type="text"
-            placeholder="Coupon Code"
-            className="border border-slate-400 text-center px-6 rounded-sm"
-          />
-          <Button type="primary">Apply Coupon</Button>
+        <div className="flex justify-between">
+          <div className="flex mt-10 gap-5">
+            <input
+              type="text"
+              placeholder="Coupon Code"
+              className="border border-slate-400 text-center h-14 px-6 rounded-sm"
+            />
+            <Button type="primary">Apply Coupon</Button>
+          </div>
+
+          <div className="w-96 mt-10 border border-stone-900 rounded-sm ">
+            <div className="mx-auto max-w-80 h-72">
+              <h3 className="text-xl ml-5 font-semibold my-8">Cart Total</h3>
+              <div className="flex justify-between border-b border-stone-900 mb-5 ">
+                <p className="font-medium mb-3">Subtotal</p>
+                <p>$1500</p>
+              </div>
+              <div className="flex justify-between border-b border-stone-900 mb-5 ">
+                <p className="font-medium mb-3">Shipping</p>
+                <p>Free</p>
+              </div>
+              <div className="flex justify-between ">
+                <p className="font-medium">Total</p>
+                <p>$1800</p>
+              </div>
+              <Button type="checkout">Procees to checkout</Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
