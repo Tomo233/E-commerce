@@ -7,6 +7,7 @@ import SignUp from "./pages/SignUp";
 import AppLayout from "./pages/AppLayout";
 import Error from "./pages/Error";
 import Cart from "./features/cart/Cart";
+import EmptyCart from "./features/cart/EmptyCart";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/",
-        element: <Cart />,
+        element: <EmptyCart />,
       },
     ],
   },
