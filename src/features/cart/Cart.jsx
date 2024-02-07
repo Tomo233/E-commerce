@@ -33,7 +33,7 @@ function Cart() {
   ];
 
   return (
-    <section className="h-dvh">
+    <section>
       <div>
         <div className="grid gap-40 grid-cols-4 bg-stone-200 py-5 my-10">
           <p className="text-sm text-stone-900 font-medium">Product</p>
@@ -57,18 +57,18 @@ function Cart() {
             <Button type="primary">Apply Coupon</Button>
           </div>
 
-          <div className="w-96 mt-10 border border-stone-900 rounded-sm ">
+          <div className="w-96 border mb-5 border-stone-900 rounded-sm">
             <div className="mx-auto max-w-80 h-72">
               <h3 className="text-xl ml-5 font-semibold my-8">Cart Total</h3>
-              <div className="flex justify-between border-b border-stone-900 mb-5 ">
+              <div className="flex justify-between border-b border-stone-900 mb-5">
                 <p className="font-medium mb-3">Subtotal</p>
                 <p>$1500</p>
               </div>
-              <div className="flex justify-between border-b border-stone-900 mb-5 ">
+              <div className="flex justify-between border-b border-stone-900 mb-5">
                 <p className="font-medium mb-3">Shipping</p>
                 <p>Free</p>
               </div>
-              <div className="flex justify-between ">
+              <div className="flex justify-between">
                 <p className="font-medium">Total</p>
                 <p>$1800</p>
               </div>
