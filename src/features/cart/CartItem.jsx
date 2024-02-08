@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { increaseOrDecreaseQuantity, removeFromCart } from "./CartSlice";
 import { useDispatch } from "react-redux";
 
@@ -8,10 +8,19 @@ function CartItem({ product }) {
   const dispatch = useDispatch();
 
   function handleSetQuantity(e) {
-    setQuantity(e.target.value);
+    const productQuantity = Number(e.target.value);
 
-    dispatch(increaseOrDecreaseQuantity({ id: product.id, quantity }));
+    setQuantity(productQuantity);
   }
+
+  useEffect(
+    function () {
+      dispatch(
+        increaseOrDecreaseQuantity({ id: product.id, quantity: quantity })
+      );
+    },
+    [dispatch, product.id, quantity]
+  );
 
   return (
     <li className="grid grid-cols-5 gap-40 my-5">
@@ -23,8 +32,8 @@ function CartItem({ product }) {
       <input
         type="number"
         className="bg-stone-200  w-18 h-10 text-center"
-        min="0"
-        value={quantity}
+        min={1}
+        value={+quantity}
         onChange={handleSetQuantity}
       />
       <button
@@ -33,7 +42,7 @@ function CartItem({ product }) {
       >
         Delete Item
       </button>
-      <p>${product.price * quantity}</p>
+      <p>${product.totalPrice}</p>
     </li>
   );
 }

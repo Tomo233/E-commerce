@@ -18,25 +18,28 @@ export default function ResponsiveDemo() {
 
   const productTemplate = (product) => {
     const [isHovered, setIsHovered] = useState(false);
+    const curQuantity = useSelector(getCurrentQuantity(product.id));
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const itemRating = product?.rating?.rate?.toFixed();
     const newPrice = product.price - product.price * 0.2;
-    const dispatch = useDispatch();
-    const quantity = useSelector(getCurrentQuantity(product.id));
-    const isInCart = quantity > 0;
-    const navigate = useNavigate();
+    const newPriceRounded = Number(newPrice.toFixed(2));
+    const isInCart = curQuantity > 0;
+
     function addItemToCart() {
       const newProduct = {
         id: product.id,
         title: product.title,
         image: product.image,
-        price: product.price,
+        price: newPriceRounded,
         quantity: 1,
+        totalPrice: product.price,
         description: product.description,
         rating: product.rating.rate,
       };
       dispatch(addToCart(newProduct));
     }
-
     return (
       <div
         className="flex items-center flex-col  justify-center mt-10 h-72  max-w-md  cursor-pointer relative"
