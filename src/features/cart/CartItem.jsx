@@ -42,7 +42,7 @@ function CartItem({ product }) {
       >
         Delete Item
       </button>
-      <p>${product.totalPrice}</p>
+      <p>${product.totalPrice.toFixed(2)}</p>
     </li>
   );
 }

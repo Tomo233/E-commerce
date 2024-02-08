@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import Button from "../../components/Button";
 import CartItem from "./CartItem";
-import { getCartProducts } from "./CartSlice";
+import { getCartProducts, getTotalPrice } from "./CartSlice";
 import EmptyCart from "./EmptyCart";
 
 function Cart() {
   const products = useSelector(getCartProducts);
-
+  const totalPrice = useSelector(getTotalPrice);
+  console.log(totalPrice);
   if (!products.length) return <EmptyCart />;
 
   return (
@@ -40,7 +41,7 @@ function Cart() {
               <h3 className="text-xl ml-5 font-semibold my-8">Cart Total</h3>
               <div className="flex justify-between border-b border-stone-900 mb-5">
                 <p className="font-medium mb-3">Subtotal</p>
-                <p>$1500</p>
+                <p>${totalPrice}</p>
               </div>
               <div className="flex justify-between border-b border-stone-900 mb-5">
                 <p className="font-medium mb-3">Shipping</p>
@@ -48,7 +49,7 @@ function Cart() {
               </div>
               <div className="flex justify-between">
                 <p className="font-medium">Total</p>
-                <p>$1800</p>
+                <p>${totalPrice}</p>
               </div>
               <Button type="checkout">Procees to checkout</Button>
             </div>
