@@ -10,10 +10,11 @@ function Cart() {
   return (
     <section>
       <div>
-        <div className="grid gap-40 grid-cols-4 bg-stone-200 py-5 my-10">
+        <div className="grid gap-40 grid-cols-5 bg-stone-200 py-5 my-10">
           <p className="text-sm text-stone-900 font-medium">Product</p>
           <p className="text-sm text-stone-900 font-medium">Price</p>
           <p className="text-sm text-stone-900 font-medium">Quantity</p>
+          <p className="text-sm text-stone-900 font-medium">Delete</p>
           <p className="text-sm text-stone-900 font-medium">Subtotal</p>
         </div>
         <ul>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { increaseOrDecreaseQuantity } from "./CartSlice";
+import { increaseOrDecreaseQuantity, removeFromCart } from "./CartSlice";
 import { useDispatch } from "react-redux";
 
 /* eslint-disable react/prop-types */
@@ -16,7 +16,7 @@ function CartItem({ product }) {
   }
 
   return (
-    <li className="grid grid-cols-4 gap-40 my-5">
+    <li className="grid grid-cols-5 gap-40 my-5">
       <div className="flex  gap-2">
         <img src={product.image} alt={product.title} className="w-12" />
         <p>{product.title}</p>
@@ -30,7 +30,13 @@ function CartItem({ product }) {
         // onChange={(e) => setQuantity(e.target.value)}
         onChange={handleSetQuantity}
       />
-      <p>${product.price * 1}</p>
+      <button
+        className="bg-red-500 text-stone-100 font-medium h-10"
+        onClick={() => dispatch(removeFromCart(product.id))}
+      >
+        Delete Item
+      </button>
+      <p>${product.price * quantity}</p>
     </li>
   );
 }
