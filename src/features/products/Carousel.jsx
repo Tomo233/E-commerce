@@ -22,7 +22,7 @@ export default function ResponsiveDemo() {
     const newPrice = product.price - product.price * 0.2;
     const dispatch = useDispatch();
     const quantity = useSelector(getCurrentQuantity(product.id));
-    const isInCart = quantity;
+    const isInCart = quantity > 0;
     const navigate = useNavigate();
     function addItemToCart() {
       const newProduct = {

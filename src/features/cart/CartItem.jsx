@@ -5,9 +5,7 @@ import { useDispatch } from "react-redux";
 /* eslint-disable react/prop-types */
 function CartItem({ product }) {
   const [quantity, setQuantity] = useState(1);
-  const productQuantity = product.quantity;
   const dispatch = useDispatch();
-  console.log(productQuantity);
 
   function handleSetQuantity(e) {
     setQuantity(e.target.value);
@@ -27,7 +25,6 @@ function CartItem({ product }) {
         className="bg-stone-200  w-18 h-10 text-center"
         min="0"
         value={quantity}
-        // onChange={(e) => setQuantity(e.target.value)}
         onChange={handleSetQuantity}
       />
       <button

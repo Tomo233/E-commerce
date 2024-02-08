@@ -23,7 +23,7 @@ const cartSlice = createSlice({
 export const getCartProducts = (state) => state.cart.cart;
 
 export const getCurrentQuantity = (id) => (state) =>
-  state.cart.cart.find((item) => item.id === id);
+  state.cart.cart.find((item) => item.id === id)?.quantity ?? 0;
 
 export const { addToCart, removeFromCart, increaseOrDecreaseQuantity } =
   cartSlice.actions;
