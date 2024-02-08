@@ -2,10 +2,12 @@ import { useSelector } from "react-redux";
 import Button from "../../components/Button";
 import CartItem from "./CartItem";
 import { getCartProducts } from "./CartSlice";
+import EmptyCart from "./EmptyCart";
 
 function Cart() {
   const products = useSelector(getCartProducts);
-  console.log(products);
+
+  if (!products.length) return <EmptyCart />;
 
   return (
     <section>
