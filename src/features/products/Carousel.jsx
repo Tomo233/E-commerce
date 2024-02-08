@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useGetSomeProductsQuery } from "../api/apiSlice";
 import Error from "../../pages/Error";
 import Loader from "../../components/Loader";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../cart/CartSlice";
 
 export default function ResponsiveDemo() {
   const { data: products, isLoading, error } = useGetSomeProductsQuery(9);
@@ -17,6 +19,21 @@ export default function ResponsiveDemo() {
     const [isHovered, setIsHovered] = useState(false);
     const itemRating = product?.rating?.rate?.toFixed();
     const newPrice = product.price - product.price * 0.2;
+    const dispatch = useDispatch();
+    function addItemToCart() {
+      const newProduct = {
+        id: product.id,
+        title: product.title,
+        image: product.image,
+        price: product.price,
+        quantity: 1,
+        description: product.description,
+        rating: product.rating.rate,
+      };
+      // console.log(newProduct);
+      dispatch(addToCart(newProduct));
+    }
+
     return (
       <div
         className="flex items-center flex-col  justify-center mt-10 h-72  max-w-md  cursor-pointer relative"
@@ -45,7 +62,7 @@ export default function ResponsiveDemo() {
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         >
-          <p>Add To Cart</p>
+          <button onClick={addItemToCart}>Add To Cart</button>
         </div>
       </div>
     );
