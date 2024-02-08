@@ -6,8 +6,9 @@ import { useState } from "react";
 import { useGetSomeProductsQuery } from "../api/apiSlice";
 import Error from "../../pages/Error";
 import Loader from "../../components/Loader";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../cart/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, getCurrentQuantity } from "../cart/CartSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function ResponsiveDemo() {
   const { data: products, isLoading, error } = useGetSomeProductsQuery(9);
@@ -20,6 +21,9 @@ export default function ResponsiveDemo() {
     const itemRating = product?.rating?.rate?.toFixed();
     const newPrice = product.price - product.price * 0.2;
     const dispatch = useDispatch();
+    const quantity = useSelector(getCurrentQuantity(product.id));
+    const isInCart = quantity;
+    const navigate = useNavigate();
     function addItemToCart() {
       const newProduct = {
         id: product.id,
@@ -30,7 +34,6 @@ export default function ResponsiveDemo() {
         description: product.description,
         rating: product.rating.rate,
       };
-      // console.log(newProduct);
       dispatch(addToCart(newProduct));
     }
 
@@ -40,7 +43,7 @@ export default function ResponsiveDemo() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="">
+        <div>
           <img
             src={product?.image}
             className="w-36 h-36"
@@ -57,13 +60,26 @@ export default function ResponsiveDemo() {
           </div>
           <Rating value={itemRating} />
         </div>
-        <div
-          className={`bg-stone-950 text-sm text-stone-100 font-semibold w-80 h-10 absolute bottom-0 flex items-center justify-center transition-all  duration-700 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <button onClick={addItemToCart}>Add To Cart</button>
-        </div>
+
+        {isInCart ? (
+          <button
+            onClick={() => navigate("/cart")}
+            className={`bg-red-600 text-sm text-stone-100 font-semibold w-80 h-10 absolute bottom-0 flex items-center justify-center transition-all  duration-700 ${
+              isHovered ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            Go To Cart
+          </button>
+        ) : (
+          <button
+            onClick={addItemToCart}
+            className={`bg-stone-950 text-sm text-stone-100 font-semibold w-80 h-10 absolute bottom-0 flex items-center justify-center transition-all  duration-700 ${
+              isHovered ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            Add To Cart
+          </button>
+        )}
       </div>
     );
   };

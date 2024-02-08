@@ -17,7 +17,7 @@ function CartItem({ product }) {
 
   return (
     <li className="grid grid-cols-5 gap-40 my-5">
-      <div className="flex  gap-2">
+      <div className="flex w-56 gap-5">
         <img src={product.image} alt={product.title} className="w-12" />
         <p>{product.title}</p>
       </div>
