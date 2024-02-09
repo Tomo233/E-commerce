@@ -30,7 +30,9 @@ function FlashSalesSection() {
         </div>
       </div>
       <Carousel />
-      <Button type="secondary">View All Products </Button>
+      <Button type="secondary" to="true">
+        View All Products{" "}
+      </Button>
       <Line />
     </section>
   );

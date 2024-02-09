@@ -31,11 +31,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/",
-        element: <AllProducts />,
+        element: <Home />,
       },
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/products",
+        element: <AllProducts />,
       },
     ],
   },

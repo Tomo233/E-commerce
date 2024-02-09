@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
+
+import { useNavigate } from "react-router-dom";
+
 /* eslint-disable no-undef */
-function Button({ children, type = null }) {
+function Button({ children, type = null, to = null }) {
+  const navigate = useNavigate();
   const base = "text-md font-medium rounded-sm px-12 py-4";
   const styles = {
     primary: base + " bg-red-500  text-slate-200 ",
@@ -9,6 +13,19 @@ function Button({ children, type = null }) {
     white: base + " border border-slate-400 text-slate-900 mt-5",
     checkout: base + " bg-red-500 text-slate-200 flex mt-5",
   };
+  if (to)
+    return (
+      <div
+        className={
+          styles[type] === styles.secondary || styles[type] === styles.checkout
+            ? "flex justify-center"
+            : null
+        }
+        onClick={() => navigate("/products")}
+      >
+        <button className={!type ? base : styles[type]}>{children}</button>
+      </div>
+    );
   return (
     <div
       className={

@@ -7,7 +7,9 @@ function BestSellingProducts() {
       <RedBorder>This Month</RedBorder>
       <div className="flex justify-between">
         <h2 className="text-3xl font-bold">Best Selling Products</h2>
-        <Button type="primary">View All</Button>
+        <Button type="primary" to="true">
+          View All
+        </Button>
       </div>
       <Carousel />
     </section>
