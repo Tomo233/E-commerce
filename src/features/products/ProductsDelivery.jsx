@@ -3,7 +3,7 @@ import secure from "../../assets/secure.png";
 import delivery from "../../assets/delivery.png";
 function ProductsDelivery() {
   return (
-    <section className="my-20">
+    <section className="my-32">
       <div className="flex justify-center gap-20">
         <div>
           <div className="rounded-full flex justify-center items-center">

@@ -7,7 +7,6 @@ import EmptyCart from "./EmptyCart";
 function Cart() {
   const products = useSelector(getCartProducts);
   const totalPrice = useSelector(getTotalPrice);
-  console.log(totalPrice);
   if (!products.length) return <EmptyCart />;
 
   return (

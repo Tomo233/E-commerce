@@ -12,7 +12,7 @@ function OurProducts() {
     <section className="my-20">
       <RedBorder>Our Products</RedBorder>
       <h2 className="text-3xl font-bold ">Explore Our Products</h2>
-      <div className="grid grid-cols-4 gap-10">
+      <div className="grid grid-cols-4 gap-10 mt-10">
         {data.map((product) => (
           <OurItem product={product} key={product.id} />
         ))}
