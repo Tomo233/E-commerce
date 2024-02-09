@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useGetSomeProductsQuery } from "../api/apiSlice";
 import Error from "../../pages/Error";
 import Loader from "../../components/Loader";
-import AddToCart from "../../components/AddToCart";
+import AddToCart from "../cart/AddToCart";
 
 export default function ResponsiveDemo() {
   const { data: products, isLoading, error } = useGetSomeProductsQuery(9);

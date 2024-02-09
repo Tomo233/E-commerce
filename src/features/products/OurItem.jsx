@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import AddToCart from "../../components/AddToCart";
+import AddToCart from "../cart/AddToCart";
 import Rating from "../../components/Rating";
 function OurItem({ product }) {
   const [isHovered, setIsHovered] = useState(false);

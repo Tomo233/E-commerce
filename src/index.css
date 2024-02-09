@@ -18,6 +18,10 @@
   @apply text-yellow-500;
 }
 
+.p-menuitem-content span {
+  @apply text-xl;
+}
+
 /* .p-carousel-items-container {
   @apply flex items-center;
 } */

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, getCurrentQuantity } from "../features/cart/CartSlice";
+import { addToCart, getCurrentQuantity } from "./CartSlice";
 import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
