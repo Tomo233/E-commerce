@@ -7,7 +7,7 @@ function BestSellingProducts() {
       <RedBorder>This Month</RedBorder>
       <div className="flex justify-between">
         <h2 className="text-3xl font-bold">Best Selling Products</h2>
-        <Button type="primary" to="true">
+        <Button type="primary" to="/products">
           View All
         </Button>
       </div>

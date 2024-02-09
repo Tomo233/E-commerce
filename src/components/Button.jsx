@@ -21,7 +21,7 @@ function Button({ children, type = null, to = null }) {
             ? "flex justify-center"
             : null
         }
-        onClick={() => navigate("/products")}
+        onClick={() => navigate(`${to}`)}
       >
         <button className={!type ? base : styles[type]}>{children}</button>
       </div>

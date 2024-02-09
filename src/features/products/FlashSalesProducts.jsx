@@ -14,7 +14,7 @@ function FlashSalesSection() {
         <div></div>
       </div>
       <Carousel />
-      <Button type="secondary" to="true">
+      <Button type="secondary" to="/products">
         View All Products
       </Button>
       <Line />

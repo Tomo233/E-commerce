@@ -29,7 +29,9 @@ function Cart() {
             <CartItem key={product.id} product={product} />
           ))}
         </ul>
-        <Button type="white">Return To Shop</Button>
+        <Button type="white" to="/products">
+          Return To Shop
+        </Button>
         <div className="flex justify-between">
           <div className="flex mt-10 gap-5">
             <input
@@ -42,7 +44,7 @@ function Cart() {
 
           <div className="max-w-md border mb-5 border-stone-900 rounded-sm">
             <div className="p-10">
-              <h3 className="text-xl font-semibold mt-8 mb-1">Cart Total</h3>
+              <h3 className="text-xl font-semibold  mb-1">Cart Total</h3>
               <p className="text-red-500 font-medium mb-5">
                 🎁 Enjoy Free Shipping on Orders Over $1000! 🚚
               </p>
