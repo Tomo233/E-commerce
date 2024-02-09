@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Line from "../../components/Line";
 import RedBorder from "../../components/RedBorder";
 import { useGetAllProductsQuery } from "../api/apiSlice";
 import OurItem from "./OurItem";
@@ -55,13 +54,14 @@ const items = [
 function AllProducts() {
   const { data: products } = useGetAllProductsQuery();
   const [range, setRange] = useState(1);
-
+  const [selected, setSelected] = useState("");
   return (
     <section className="my-10">
       <div className="flex justify-between">
         <div>
           <div className="border-b border-stone-400">
             <h3 className="font-semibold text-2xl">Categories</h3>
+
             <ProductNavigation items={items} />
           </div>
           <div className="mt-10">
@@ -77,19 +77,27 @@ function AllProducts() {
               onChange={(e) => setRange(e.target.value)}
               className="appearance-none w-full h-2 bg-red-500 rounded-lg outline-none"
             />
-            <div>
-              <label className="text-2xl">A-Z</label>
-              <input type="checkbox" />
-            </div>
-            <div>
-              <label className="text-2xl">Z-A</label>
-              <input type="checkbox" />
-            </div>
           </div>
         </div>
 
         <div>
-          <RedBorder>All Our Products</RedBorder>
+          <div className="flex justify-between items-center">
+            <RedBorder>All Our Products</RedBorder>
+            <select
+              className="outline-none border-2 border-stone-900 rounded-sm max-h-8 focus:border-red-500 focus:outline-none"
+              value={selected}
+              onChange={(e) => setSelected(e.target.value)}
+            >
+              <option value="select category" hidden>
+                Select Category
+              </option>
+
+              <option>A-Z</option>
+              <option>Z-A</option>
+              <option>Price High To Low</option>
+              <option>Price Low To High</option>
+            </select>
+          </div>
           <div className="grid grid-cols-4 gap-12 mt-10">
             {products?.map((product) => (
               <OurItem product={product} key={product.id} />
