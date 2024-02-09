@@ -6,7 +6,12 @@ import EmptyCart from "./EmptyCart";
 
 function Cart() {
   const products = useSelector(getCartProducts);
-  const totalPrice = useSelector(getTotalPrice);
+
+  const subTotalPrice = useSelector(getTotalPrice);
+  const twentyPercentOfPrice =
+    subTotalPrice > 1000 ? Math.round(Number(subTotalPrice * 0.2)) : 0;
+  const totalPrice = subTotalPrice + twentyPercentOfPrice;
+
   if (!products.length) return <EmptyCart />;
 
   return (
@@ -40,15 +45,15 @@ function Cart() {
               <h3 className="text-xl ml-5 font-semibold my-8">Cart Total</h3>
               <div className="flex justify-between border-b border-stone-900 mb-5">
                 <p className="font-medium mb-3">Subtotal</p>
-                <p>${totalPrice}</p>
+                <p>${subTotalPrice.toFixed(2)}</p>
               </div>
               <div className="flex justify-between border-b border-stone-900 mb-5">
                 <p className="font-medium mb-3">Shipping</p>
-                <p>Free</p>
+                <p>${twentyPercentOfPrice}</p>
               </div>
               <div className="flex justify-between">
                 <p className="font-medium">Total</p>
-                <p>${totalPrice}</p>
+                <p>${totalPrice.toFixed(2)}</p>
               </div>
               <Button type="checkout">Procees to checkout</Button>
             </div>
