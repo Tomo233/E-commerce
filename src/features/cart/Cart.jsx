@@ -40,9 +40,12 @@ function Cart() {
             <Button type="primary">Apply Coupon</Button>
           </div>
 
-          <div className="w-96 border mb-5 border-stone-900 rounded-sm">
-            <div className="mx-auto max-w-80 h-72">
-              <h3 className="text-xl ml-5 font-semibold my-8">Cart Total</h3>
+          <div className="max-w-md border mb-5 border-stone-900 rounded-sm">
+            <div className="p-10">
+              <h3 className="text-xl font-semibold mt-8 mb-1">Cart Total</h3>
+              <p className="text-red-500 font-medium mb-5">
+                🎁 Enjoy Free Shipping on Orders Over $1000! 🚚
+              </p>
               <div className="flex justify-between border-b border-stone-900 mb-5">
                 <p className="font-medium mb-3">Subtotal</p>
                 <p>${subTotalPrice.toFixed(2)}</p>
