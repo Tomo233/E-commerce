@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
 import RedBorder from "../../components/RedBorder";
 import { useGetAllProductsQuery } from "../api/apiSlice";
@@ -51,8 +52,8 @@ function AllProducts() {
                 Select Category
               </option>
               <option>All Categories</option>
-              <option>Men&rsquo;s clothing</option>
-              <option>Woman&rsquo;s clothing</option>
+              <option>Men's clothing</option>
+              <option>Women's clothing</option>
               <option>Jewelery</option>
               <option>Electronics</option>
             </select>

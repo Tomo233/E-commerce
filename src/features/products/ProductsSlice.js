@@ -12,6 +12,7 @@ export const fetchProducts = createAsyncThunk(
   async function (category) {
     try {
       if (category === "all categories") return;
+
       const res = await fetch(
         `https://fakestoreapi.com/products/category/${category}`
       );
@@ -19,7 +20,8 @@ export const fetchProducts = createAsyncThunk(
       if (!data) return;
       return data;
     } catch (error) {
-      console.error(`Error :( ${error}`);
+      console.log("");
+      // console.error(`Error :( ${error}`);
       throw error;
     }
   }
