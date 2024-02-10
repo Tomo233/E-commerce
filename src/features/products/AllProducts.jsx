@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RedBorder from "../../components/RedBorder";
 import { useGetAllProductsQuery } from "../api/apiSlice";
 import OurItem from "./OurItem";
 import ProductNavigation from "./ProductNavigation";
+import { useDispatch } from "react-redux";
+import { fetchProducts } from "./ProductsSlice";
 
 const items = [
   {
@@ -54,7 +56,16 @@ const items = [
 function AllProducts() {
   const { data: products } = useGetAllProductsQuery();
   const [range, setRange] = useState(1);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("jewelery");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts(selected.toLowerCase()));
+  }, [selected, dispatch]);
+
+  function handleSelectedCategory(e) {
+    setSelected(e.target.value);
+  }
   return (
     <section className="my-10">
       <div className="flex justify-between">
@@ -75,7 +86,7 @@ function AllProducts() {
               step="1"
               value={range}
               onChange={(e) => setRange(e.target.value)}
-              className="appearance-none w-full h-2 bg-red-500 rounded-lg outline-none"
+              className="appearance-none w-full h-2 bg-stone-300 rounded-lg outline-none"
             />
           </div>
         </div>
@@ -84,18 +95,18 @@ function AllProducts() {
           <div className="flex justify-between items-center">
             <RedBorder>All Our Products</RedBorder>
             <select
-              className="outline-none border-2 border-stone-900 rounded-sm max-h-8 focus:border-red-500 focus:outline-none"
+              className="outline-none border-2 border-stone-300 rounded-sm max-h-8 "
               value={selected}
-              onChange={(e) => setSelected(e.target.value)}
+              onChange={handleSelectedCategory}
             >
               <option value="select category" hidden>
                 Select Category
               </option>
 
-              <option>A-Z</option>
-              <option>Z-A</option>
-              <option>Price High To Low</option>
-              <option>Price Low To High</option>
+              <option>Men&rsquo;s clothing</option>
+              <option>Woman&rsquo;s clothing</option>
+              <option>Jewelery</option>
+              <option>Electronics</option>
             </select>
           </div>
           <div className="grid grid-cols-4 gap-12 mt-10">
