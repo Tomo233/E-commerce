@@ -25,3 +25,13 @@
 /* .p-carousel-items-container {
   @apply flex items-center;
 } */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+  overflow: visible;
+  cursor: pointer;
+}

@@ -11,6 +11,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async function (category) {
     try {
+      if (category === "all categories") return;
       const res = await fetch(
         `https://fakestoreapi.com/products/category/${category}`
       );
