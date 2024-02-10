@@ -11,16 +11,15 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async function (category) {
     try {
-      console.log(category);
       const res = await fetch(
         `https://fakestoreapi.com/products/category/${category}`
       );
       const data = await res.json();
-      if (!data.length) return;
-      console.log(data);
-      //   return data;
+      if (!data) return;
+      return data;
     } catch (error) {
-      throw new Error("Error !");
+      console.error(`Error :( ${error}`);
+      throw error;
     }
   }
 );
@@ -36,7 +35,7 @@ const ProductsSlice = createSlice({
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = "idle";
-        state.filteredProducts = action.payload; // Update state with fetched data
+        state.filteredProducts = action.payload;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "error";

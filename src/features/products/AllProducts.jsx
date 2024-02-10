@@ -3,8 +3,9 @@ import RedBorder from "../../components/RedBorder";
 import { useGetAllProductsQuery } from "../api/apiSlice";
 import OurItem from "./OurItem";
 import ProductNavigation from "./ProductNavigation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "./ProductsSlice";
+import Loader from "../../components/Loader";
 
 const items = [
   {
@@ -56,8 +57,11 @@ const items = [
 function AllProducts() {
   const { data: products } = useGetAllProductsQuery();
   const [range, setRange] = useState(1);
-  const [selected, setSelected] = useState("jewelery");
+  const [selected, setSelected] = useState("");
   const dispatch = useDispatch();
+  const { filteredProducts, status, error } = useSelector(
+    (state) => state.products
+  );
 
   useEffect(() => {
     dispatch(fetchProducts(selected.toLowerCase()));
@@ -66,6 +70,7 @@ function AllProducts() {
   function handleSelectedCategory(e) {
     setSelected(e.target.value);
   }
+
   return (
     <section className="my-10">
       <div className="flex justify-between">
@@ -110,9 +115,15 @@ function AllProducts() {
             </select>
           </div>
           <div className="grid grid-cols-4 gap-12 mt-10">
-            {products?.map((product) => (
-              <OurItem product={product} key={product.id} />
-            ))}
+            {status === "loading" && <Loader />}
+            {/* {status === "error" && <p>{error}</p>} */}
+            {filteredProducts?.length > 0
+              ? filteredProducts?.map((product) => (
+                  <OurItem product={product} key={product.id} />
+                ))
+              : products?.map((product) => (
+                  <OurItem product={product} key={product.id} />
+                ))}
           </div>
         </div>
       </div>
