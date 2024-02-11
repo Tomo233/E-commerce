@@ -4,7 +4,7 @@ import RedBorder from "../../components/RedBorder";
 import { useGetAllProductsQuery } from "../api/apiSlice";
 import OurItem from "./OurItem";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "./ProductsSlice";
+import { fetchProductsCategory, filterProductsByPrice } from "./ProductsSlice";
 import Loader from "../../components/Loader";
 
 function AllProducts() {
@@ -12,15 +12,17 @@ function AllProducts() {
   const [range, setRange] = useState(1);
   const [selected, setSelected] = useState("");
   const dispatch = useDispatch();
-  const { filteredProducts, status } = useSelector((state) => state.products);
+  const { filteredProducts, priceFiltered, status } = useSelector(
+    (state) => state.products
+  );
 
   useEffect(() => {
-    dispatch(fetchProducts(selected.toLowerCase()));
+    dispatch(fetchProductsCategory(selected.toLowerCase()));
   }, [selected, dispatch]);
 
-  function handleSelectedCategory(e) {
-    setSelected(e.target.value);
-  }
+  useEffect(() => {
+    dispatch(filterProductsByPrice(+range));
+  }, [dispatch, range]);
 
   return (
     <section className="my-10">
@@ -46,7 +48,7 @@ function AllProducts() {
             <select
               className="outline-none border-2 border-stone-300 rounded-sm max-h-8 "
               value={selected}
-              onChange={handleSelectedCategory}
+              onChange={(e) => setSelected(e.target.value)}
             >
               <option value="select category" hidden>
                 Select Category
@@ -61,12 +63,16 @@ function AllProducts() {
           <div className="grid grid-cols-4 gap-12 mt-10">
             {status === "loading" && <Loader />}
             {/* {status === "error" && <p>{error}</p>} */}
-            {filteredProducts?.length > 0
+            {priceFiltered?.length > 0
+              ? priceFiltered?.map((product) => (
+                  <OurItem product={product} key={product?.id} />
+                ))
+              : filteredProducts?.length > 0
               ? filteredProducts?.map((product) => (
-                  <OurItem product={product} key={product.id} />
+                  <OurItem product={product} key={product?.id} />
                 ))
               : products?.map((product) => (
-                  <OurItem product={product} key={product.id} />
+                  <OurItem product={product} key={product?.id} />
                 ))}
           </div>
         </div>

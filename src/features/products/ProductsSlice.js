@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  products: [],
   filteredProducts: [],
+  priceFiltered: [],
   status: "idle",
   error: "",
 };
 
-export const fetchProducts = createAsyncThunk(
-  "products/fetchProducts",
+export const fetchProductsCategory = createAsyncThunk(
+  "products/fetchProductsCategory",
   async function (category) {
     try {
       if (category === "all categories") return;
@@ -30,21 +30,29 @@ export const fetchProducts = createAsyncThunk(
 const ProductsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    filterProductsByPrice(state, action) {
+      state.priceFiltered = state.filteredProducts.filter(
+        (product) => product.price <= action.payload
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProducts.pending, (state) => {
+      .addCase(fetchProductsCategory.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchProductsCategory.fulfilled, (state, action) => {
         state.status = "idle";
         state.filteredProducts = action.payload;
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(fetchProductsCategory.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
       });
   },
 });
+
+export const { filterProductsByPrice } = ProductsSlice.actions;
 
 export default ProductsSlice.reducer;

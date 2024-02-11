@@ -6,22 +6,22 @@ import { useNavigate } from "react-router-dom";
 function AddToCart({ product, isHovered }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const curQuantity = useSelector(getCurrentQuantity(product.id));
+  const curQuantity = useSelector(getCurrentQuantity(product?.id));
   const isInCart = curQuantity > 0;
-  const newPrice = product.price - product.price * 0.2;
+  const newPrice = product?.price - product?.price * 0.2;
   const newPriceRounded = Number(newPrice.toFixed(2));
 
   function addItemToCart() {
     const newProduct = {
-      id: product.id,
-      title: product.title,
-      image: product.image,
+      id: product?.id,
+      title: product?.title,
+      image: product?.image,
       price: newPriceRounded,
       quantity: 1,
-      totalPrice: product.price,
-      description: product.description,
-      rating: product.rating.rate,
-      category: product.category,
+      totalPrice: product?.price,
+      description: product?.description,
+      rating: product?.rating.rate,
+      category: product?.category,
     };
     dispatch(addToCart(newProduct));
   }
