@@ -1,22 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
 import RedBorder from "../../components/RedBorder";
-import { useGetAllProductsQuery } from "../api/apiSlice";
 import OurItem from "./OurItem";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsCategory, filterProductsByPrice } from "./ProductsSlice";
 import Loader from "../../components/Loader";
 
 function AllProducts() {
-  const { data: products } = useGetAllProductsQuery();
   const [range, setRange] = useState(1);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("All Categories");
   const dispatch = useDispatch();
-  const { filteredProducts, priceFiltered, status } = useSelector(
+  const { categoryFiltered, priceFiltered, status, error } = useSelector(
     (state) => state.products
   );
 
   useEffect(() => {
+    setRange(1);
     dispatch(fetchProductsCategory(selected.toLowerCase()));
   }, [selected, dispatch]);
 
@@ -50,9 +49,6 @@ function AllProducts() {
               value={selected}
               onChange={(e) => setSelected(e.target.value)}
             >
-              <option value="select category" hidden>
-                Select Category
-              </option>
               <option>All Categories</option>
               <option>Men's clothing</option>
               <option>Women's clothing</option>
@@ -62,18 +58,23 @@ function AllProducts() {
           </div>
           <div className="grid grid-cols-4 gap-12 mt-10">
             {status === "loading" && <Loader />}
-            {/* {status === "error" && <p>{error}</p>} */}
-            {priceFiltered?.length > 0
-              ? priceFiltered?.map((product) => (
-                  <OurItem product={product} key={product?.id} />
-                ))
-              : filteredProducts?.length > 0
-              ? filteredProducts?.map((product) => (
-                  <OurItem product={product} key={product?.id} />
-                ))
-              : products?.map((product) => (
-                  <OurItem product={product} key={product?.id} />
-                ))}
+            {status === "error" && (
+              <p className="text-red-500">Error !!! {error}</p>
+            )}
+            {priceFiltered?.length > 0 ? (
+              priceFiltered?.map((product) => (
+                <OurItem product={product} key={product?.id} />
+              ))
+            ) : categoryFiltered?.length > 0 ? (
+              categoryFiltered?.map((product) => (
+                <OurItem product={product} key={product?.id} />
+              ))
+            ) : (
+              // : products?.map((product) => (
+              //     <OurItem product={product} key={product?.id} />
+              //   ))}
+              <h3>E</h3>
+            )}
           </div>
         </div>
       </div>

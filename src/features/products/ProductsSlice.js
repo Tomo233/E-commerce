@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  filteredProducts: [],
+  categoryFiltered: [],
   priceFiltered: [],
   status: "idle",
   error: "",
@@ -11,7 +11,12 @@ export const fetchProductsCategory = createAsyncThunk(
   "products/fetchProductsCategory",
   async function (category) {
     try {
-      if (category === "all categories") return;
+      if (category === "all categories") {
+        const res = await fetch("https://fakestoreapi.com/products");
+        const data = await res.json();
+        if (!data) return;
+        return data;
+      }
 
       const res = await fetch(
         `https://fakestoreapi.com/products/category/${category}`
@@ -32,7 +37,7 @@ const ProductsSlice = createSlice({
   initialState,
   reducers: {
     filterProductsByPrice(state, action) {
-      state.priceFiltered = state.filteredProducts.filter(
+      state.priceFiltered = state.categoryFiltered.filter(
         (product) => product.price <= action.payload
       );
     },
@@ -44,7 +49,7 @@ const ProductsSlice = createSlice({
       })
       .addCase(fetchProductsCategory.fulfilled, (state, action) => {
         state.status = "idle";
-        state.filteredProducts = action.payload;
+        state.categoryFiltered = action.payload;
       })
       .addCase(fetchProductsCategory.rejected, (state, action) => {
         state.status = "error";
