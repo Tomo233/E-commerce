@@ -61,20 +61,13 @@ function AllProducts() {
             {status === "error" && (
               <p className="text-red-500">Error !!! {error}</p>
             )}
-            {priceFiltered?.length > 0 ? (
-              priceFiltered?.map((product) => (
-                <OurItem product={product} key={product?.id} />
-              ))
-            ) : categoryFiltered?.length > 0 ? (
-              categoryFiltered?.map((product) => (
-                <OurItem product={product} key={product?.id} />
-              ))
-            ) : (
-              // : products?.map((product) => (
-              //     <OurItem product={product} key={product?.id} />
-              //   ))}
-              <h3>E</h3>
-            )}
+            {priceFiltered?.length > 0
+              ? priceFiltered?.map((product) => (
+                  <OurItem product={product} key={product?.id} />
+                ))
+              : categoryFiltered?.map((product) => (
+                  <OurItem product={product} key={product?.id} />
+                ))}
           </div>
         </div>
       </div>
