@@ -1,13 +1,13 @@
-import speaker from "../../assets/speaker.png";
+import hdd from "../../assets/hdd.png";
 import Button from "../../components/Button";
-function SpeakerProduct() {
+function HddProduct() {
   return (
     <section className="bg-stone-950 my-10 py-20">
       <div className="flex items-center justify-around">
         <div>
           <p className="text-green-400 font-semibold">Categories</p>
           <h2 className="text-6xl text-stone-100 font-semibold tracking-wide my-5 leading-tight	">
-            Enhance Your <span className="block"> Music Experience</span>
+            Enhance Your <span className="block"> Computer Experience</span>
           </h2>
 
           <div className="mt-5 flex gap-8">
@@ -34,11 +34,11 @@ function SpeakerProduct() {
         </div>
 
         <div>
-          <img src={speaker} alt="speaker" className="w-full" />
+          <img src={hdd} alt="speaker" className="w-72" />
         </div>
       </div>
     </section>
   );
 }
 
-export default SpeakerProduct;
+export default HddProduct;
