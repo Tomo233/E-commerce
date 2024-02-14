@@ -1,7 +1,6 @@
 import Rating from "../../components/Rating";
 import blackDelivery from "../../assets/blackDelivery.png";
 import returnIcon from "../../assets/return.png";
-import Line from "../../components/Line";
 
 const product = {
   id: 1,
@@ -15,9 +14,9 @@ const product = {
 
 function Product() {
   return (
-    <section className="flex justify-between mt-14">
+    <section className="flex justify-between  items-center my-20 ">
       <div>
-        <img src={product.image} className="w-64" alt="" />
+        <img src={product.image} className="w-96 " alt="" />
       </div>
       <div className="grid">
         <div className="border-b border-stone-400 mb-5">
@@ -37,7 +36,8 @@ function Product() {
             Add To Cart
           </button>
         </div>
-        <div className="flex border border-stone-500 py-5">
+
+        <div className="flex border border-stone-500 py-7">
           <img src={blackDelivery} className="w-12" alt="delivery" />
           <div>
             <h4 className="text-stone-900 font-semibold">Free Delivery</h4>
@@ -47,7 +47,7 @@ function Product() {
           </div>
         </div>
 
-        <div className="flex border border-stone-500 py-5">
+        <div className="flex border border-stone-500 py-7">
           <img src={returnIcon} className="w-12" alt="returnIcon" />
           <div>
             <h3 className="text-stone-900 font-semibold">Return Delivery</h3>
