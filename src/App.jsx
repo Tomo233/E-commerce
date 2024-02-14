@@ -8,6 +8,7 @@ import AppLayout from "./pages/AppLayout";
 import Error from "./pages/Error";
 import Cart from "./features/cart/Cart";
 import AllProducts from "./features/products/AllProducts";
+import Product from "./features/products/Product";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/",
-        element: <Home />,
+        element: <Product />,
       },
       {
         path: "/cart",
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <AllProducts />,
+      },
+      {
+        path: "/products/:productId",
+        element: <Product />,
       },
     ],
   },
