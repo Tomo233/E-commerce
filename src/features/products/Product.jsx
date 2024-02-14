@@ -37,7 +37,7 @@ function Product() {
           </button>
         </div>
 
-        <div className="flex border border-stone-500 py-7">
+        <div className="flex border border-stone-500 py-7 mt-5">
           <img src={blackDelivery} className="w-12" alt="delivery" />
           <div>
             <h4 className="text-stone-900 font-semibold">Free Delivery</h4>
