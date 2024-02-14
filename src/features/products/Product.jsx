@@ -27,13 +27,15 @@ function Product() {
           <p className="w-96 mb-5 font-medium">{product.description}</p>
         </div>
 
-        <div className="flex gap-7">
+        <div className="flex gap-7 my-3">
           <input
             type="number"
-            className="bg-stone-100 border border-stone-500  w-18 h-10 text-center"
+            className="bg-stone-100 border border-stone-500 px-3 py-3 text-center"
             min={1}
           />
-          <button className="bg-red-500 px-5 py-3">Add To Cart</button>
+          <button className="bg-red-500 px-8 py-3 text-stone-100 font-medium">
+            Add To Cart
+          </button>
         </div>
         <div className="flex border border-stone-500 py-5">
           <img src={blackDelivery} className="w-12" alt="delivery" />
