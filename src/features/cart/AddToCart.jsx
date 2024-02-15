@@ -3,7 +3,7 @@ import { addToCart, getCurrentQuantity } from "./CartSlice";
 import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-function AddToCart({ product, isHovered }) {
+function AddToCart({ product, isHovered, type }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const curQuantity = useSelector(getCurrentQuantity(product?.id));
@@ -30,18 +30,26 @@ function AddToCart({ product, isHovered }) {
       {isInCart ? (
         <button
           onClick={() => navigate("/cart")}
-          className={`bg-red-600 text-sm text-stone-100 font-semibold w-80 h-10 absolute bottom-0 flex items-center justify-center transition-all  duration-700 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
+          className={
+            type === "primary"
+              ? `bg-red-600 text-sm text-stone-100 font-semibold w-80 h-10   flex items-center justify-center transition-all  duration-700`
+              : `bg-red-600 text-sm text-stone-100 font-semibold w-80 h-10 absolute bottom-0 flex items-center justify-center transition-all  duration-700 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`
+          }
         >
           Go To Cart
         </button>
       ) : (
         <button
           onClick={addItemToCart}
-          className={`bg-stone-950 text-sm text-stone-100 font-semibold w-80 h-10 absolute bottom-0 flex items-center justify-center transition-all  duration-700 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
+          className={
+            type === "primary"
+              ? `bg-stone-950 text-sm text-stone-100 font-semibold w-80 h-10   flex items-center justify-center transition-all  duration-700`
+              : `bg-stone-950 text-sm text-stone-100 font-semibold w-80 h-10 absolute bottom-0 flex items-center justify-center transition-all  duration-700 ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`
+          }
         >
           Add To Cart
         </button>
