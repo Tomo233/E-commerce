@@ -1,29 +1,33 @@
 import Rating from "../../components/Rating";
 import blackDelivery from "../../assets/blackDelivery.png";
 import returnIcon from "../../assets/return.png";
+import { useGetCertainProductQuery } from "../api/apiSlice";
+import { useParams } from "react-router-dom";
 
-const product = {
-  id: 1,
-  title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-  price: 109.95,
-  description:
-    "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-  category: "men's clothing",
-  image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-};
+// const product = {
+//   id: 1,
+//   title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+//   price: 109.95,
+//   description:
+//     "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+//   category: "men's clothing",
+//   image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+// };
 
 function Product() {
+  const { productId } = useParams();
+  const { data: product } = useGetCertainProductQuery(productId);
   return (
     <section className="flex justify-between  items-center my-20 ">
       <div>
-        <img src={product.image} className="w-96 " alt="" />
+        <img src={product?.image} className="w-96 " alt="" />
       </div>
       <div className="grid">
         <div className="border-b border-stone-400 mb-5">
-          <h2 className="text-3xl font-semibold">{product.title}</h2>
+          <h2 className="text-3xl font-semibold">{product?.title}</h2>
           <Rating value="3" />
-          <p className="text-2xl my-2">${product.price}</p>
-          <p className="w-96 mb-5 font-medium">{product.description}</p>
+          <p className="text-2xl my-2">${product?.price}</p>
+          <p className="w-96 mb-5 font-medium">{product?.description}</p>
         </div>
 
         <div className="flex gap-7 my-3">
