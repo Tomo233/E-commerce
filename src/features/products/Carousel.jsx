@@ -7,6 +7,7 @@ import { useGetSomeProductsQuery } from "../api/apiSlice";
 import Error from "../../pages/Error";
 import Loader from "../../components/Loader";
 import AddToCart from "../cart/AddToCart";
+import { Link } from "react-router-dom";
 
 export default function ResponsiveDemo() {
   const { data: products, isLoading, error } = useGetSomeProductsQuery(9);
@@ -20,10 +21,11 @@ export default function ResponsiveDemo() {
     const newPrice = product.price - product.price * 0.2;
 
     return (
-      <div
+      <Link
         className="flex items-center flex-col  justify-center mt-10 h-72  max-w-md  cursor-pointer relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        to={`/products/${product.id}`}
       >
         <div>
           <img
@@ -44,7 +46,7 @@ export default function ResponsiveDemo() {
         </div>
 
         <AddToCart product={product} isHovered={isHovered} />
-      </div>
+      </Link>
     );
   };
 

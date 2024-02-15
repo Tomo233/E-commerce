@@ -2,15 +2,17 @@
 import { useState } from "react";
 import AddToCart from "../cart/AddToCart";
 import Rating from "../../components/Rating";
+import { Link } from "react-router-dom";
 function OurItem({ product }) {
   const [isHovered, setIsHovered] = useState(false);
   const itemRating = product?.rating?.rate?.toFixed();
 
   return (
-    <div
+    <Link
       className="flex flex-col items-center justify-center cursor-pointer relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      to={`/products/${product.id}`}
     >
       <div className="pb-3 flex items-center justify-center">
         <img src={product?.image} className="w-32 h-32" alt={product?.title} />
@@ -21,7 +23,7 @@ function OurItem({ product }) {
         <Rating value={itemRating} />
       </div>
       <AddToCart isHovered={isHovered} product={product} />
-    </div>
+    </Link>
   );
 }
 

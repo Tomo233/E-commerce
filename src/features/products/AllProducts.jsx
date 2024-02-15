@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import RedBorder from "../../components/RedBorder";
 import OurItem from "./OurItem";
-import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsCategory, filterProductsByPrice } from "./ProductsSlice";
 import Loader from "../../components/Loader";
+import { useDispatch, useSelector } from "react-redux";
 
 function AllProducts() {
   const [range, setRange] = useState(1);

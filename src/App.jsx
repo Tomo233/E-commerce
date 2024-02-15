@@ -9,6 +9,8 @@ import Error from "./pages/Error";
 import Cart from "./features/cart/Cart";
 import AllProducts from "./features/products/AllProducts";
 import Product from "./features/products/Product";
+
+// Define your route configuration
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
