@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import hdd from "../../assets/hdd.png";
-import Button from "../../components/Button";
 function HddProduct() {
   return (
     <section className="bg-stone-950 my-10 py-20">
@@ -30,7 +30,14 @@ function HddProduct() {
               <p className="text-sm font-medium">Seconds</p>
             </div>
           </div>
-          <Button type="green">Buy Now</Button>
+          <button className="mt-10">
+            <Link
+              to="products/9"
+              className="bg-green-600 text-slate-200 text-md font-medium rounded-sm px-12 py-4"
+            >
+              Buy Now
+            </Link>
+          </button>
         </div>
 
         <div>
