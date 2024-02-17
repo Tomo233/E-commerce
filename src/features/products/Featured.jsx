@@ -1,6 +1,6 @@
 import RedBorder from "../../components/RedBorder";
-import perfume from "../../assets/perfume.png";
-import ps5 from "../../assets/ps5.png";
+import jewelry from "../../assets/jewelry.png";
+import man from "../../assets/man.png";
 import speakers from "../../assets/speakers.png";
 import womanHat from "../../assets/womanHat.png";
 
@@ -14,18 +14,18 @@ function Featured() {
         <div className="bg-stone-900 p-4 row-span-3 relative rounded-md">
           <div className="absolute bottom-10 z-10 w-64 left-14 max-w-72 mb-3">
             <h3 className="text-stone-100 text-2xl font-semibold tracking-wide">
-              PlayStation 5
+              Man’s Collections
             </h3>
             <p className="text-stone-100 tracking-wide my-2">
-              Black and White version of the PS5 coming out on sale.
+              Featured Man collections that give you another vibe. Shop Now
             </p>
             <p className="text-stone-100 underline font-semibold">Shop Now</p>
           </div>
 
           <img
-            src={ps5}
-            alt="ps5"
-            className="mx-auto absolute left-1/2 transform -translate-x-1/2 bottom-0"
+            src={man}
+            alt="man"
+            className="h-5/6 mx-auto absolute left-1/2 transform -translate-x-1/2 top-14"
           />
         </div>
 
@@ -56,10 +56,10 @@ function Featured() {
             />
             <div className="absolute bottom-10 left-10 max-w-72">
               <h3 className="text-stone-100 text-2xl font-semibold tracking-wide">
-                Speakers
+                Tehnology
               </h3>
               <p className="text-stone-100 tracking-wide my-1">
-                Amazon wireless speakers
+                Amazon SSD and HDD
               </p>
               <p className="text-stone-100 underline font-semibold">Shop Now</p>
             </div>
@@ -67,16 +67,16 @@ function Featured() {
 
           <div className="bg-stone-900 p-4 w-80 h-80 relative rounded-md">
             <img
-              src={perfume}
-              alt="perfume"
-              className="mx-auto absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              src={jewelry}
+              alt="jewerly"
+              className="h-64 mx-auto absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             />
             <div className="absolute bottom-10 left-10">
               <h3 className="text-stone-100 text-2xl font-semibold tracking-wide">
-                Perfume
+                Jewelry
               </h3>
               <p className="text-stone-100 tracking-wide my-1">
-                GUCCI INTENSE OUD EDP
+                Amazing Jewelry
               </p>
               <p className="text-stone-100 underline font-semibold">Shop Now</p>
             </div>
