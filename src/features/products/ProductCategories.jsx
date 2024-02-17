@@ -1,10 +1,10 @@
 import RedBorder from "../../components/RedBorder";
-import camera from "../../assets/camera.png";
-import cellphone from "../../assets/cellphone.png";
-import watch from "../../assets/watch.png";
-import headphones from "../../assets/headphones.png";
-import gamepad from "../../assets/gamepad.png";
 import Line from "../../components/Line";
+
+import manClothes from "../../assets/manClothes.png";
+import cellphone from "../../assets/cellphone.png";
+import jewelryIcon from "../../assets/jewelryIcon.png";
+import womanDress from "../../assets/womanDress.png";
 
 function Categories() {
   return (
@@ -13,24 +13,20 @@ function Categories() {
       <h2 className="text-3xl font-bold ">Browse By Categories</h2>
       <div className="flex gap-5 justify-between mt-10">
         <div className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300">
-          <img src={camera} alt="" />
-          <p>Camera</p>
+          <img src={manClothes} className="w-14" alt="" />
+          <p>Man’s</p>
         </div>
         <div className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300">
           <img src={cellphone} alt="" />
-          <p>Phones</p>
+          <p>Electronics</p>
         </div>
         <div className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300">
-          <img src={watch} alt="" />
-          <p>SmartWatch</p>
+          <img src={womanDress} className="w-14" alt="" />
+          <p>Woman’s</p>
         </div>
         <div className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300">
-          <img src={headphones} alt="" />
-          <p>HeadPhones</p>
-        </div>
-        <div className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300">
-          <img src={gamepad} alt="" />
-          <p>GamePad</p>
+          <img src={jewelryIcon} alt="" className="w-14" />
+          <p>Jewelry</p>
         </div>
       </div>
       <Line />
