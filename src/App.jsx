@@ -9,6 +9,7 @@ import Error from "./pages/Error";
 import Cart from "./features/cart/Cart";
 import AllProducts from "./features/products/AllProducts";
 import Product from "./features/products/Product";
+import ProductsOfCertainCategory from "./features/products/ProductsOfCertainCategory";
 
 // Define your route configuration
 const router = createBrowserRouter([
@@ -49,7 +50,8 @@ const router = createBrowserRouter([
         element: <Product />,
       },
       {
-        path: "/products/:category",
+        path: "/category/:category",
+        element: <ProductsOfCertainCategory />,
       },
     ],
   },

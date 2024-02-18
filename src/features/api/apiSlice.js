@@ -23,4 +23,5 @@ export const {
   useGetAllProductsQuery,
   useGetSomeProductsQuery,
   useGetCertainProductQuery,
+  useGetCategoryProductsQuery,
 } = productsApi;
