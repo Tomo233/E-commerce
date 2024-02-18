@@ -3,6 +3,7 @@ import jewelry from "../../assets/jewelry.png";
 import man from "../../assets/man.png";
 import speakers from "../../assets/speakers.png";
 import womanHat from "../../assets/womanHat.png";
+import { Link } from "react-router-dom";
 
 function Featured() {
   return (
@@ -19,9 +20,13 @@ function Featured() {
             <p className="text-stone-100 tracking-wide my-2">
               Featured Man collections that give you another vibe. Shop Now
             </p>
-            <p className="text-stone-100 underline font-semibold">Shop Now</p>
+            <Link
+              className="text-stone-100 underline font-semibold"
+              to="/category/men's clothing"
+            >
+              Shop Now
+            </Link>
           </div>
-
           <img
             src={man}
             alt="man"
@@ -37,7 +42,12 @@ function Featured() {
             <p className="text-stone-100 tracking-wide my-2">
               Featured woman collections that give you another vibe. Shop Now
             </p>
-            <p className="text-stone-100 underline font-semibold">Shop Now</p>
+            <Link
+              className="text-stone-100 underline font-semibold"
+              to="/category/women's clothing"
+            >
+              Shop Now
+            </Link>
           </div>
 
           <img
@@ -61,7 +71,12 @@ function Featured() {
               <p className="text-stone-100 tracking-wide my-1">
                 Amazon SSD and HDD
               </p>
-              <p className="text-stone-100 underline font-semibold">Shop Now</p>
+              <Link
+                className="text-stone-100 underline font-semibold"
+                to="/category/electronics"
+              >
+                Shop Now
+              </Link>
             </div>
           </div>
 
@@ -78,7 +93,12 @@ function Featured() {
               <p className="text-stone-100 tracking-wide my-1">
                 Amazing Jewelry
               </p>
-              <p className="text-stone-100 underline font-semibold">Shop Now</p>
+              <Link
+                className="text-stone-100 underline font-semibold"
+                to="/category/jewelery"
+              >
+                Shop Now
+              </Link>
             </div>
           </div>
         </div>
