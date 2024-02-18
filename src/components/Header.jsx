@@ -1,6 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
 import Line from "./Line";
-// import like from "../assets/like.png";
 
 function Header() {
   return (
@@ -32,9 +31,6 @@ function Header() {
           placeholder="what are you looking for?"
           className="w-56 h-10  bg-[#F5F5F5] font-semibold text-sm	text-center outline-none	"
         />
-        {/* <Link to="/cart">
-          <i className="pi pi-shopping-cart text-2xl"></i>
-        </Link> */}
         <Link to="/cart">
           <i className="pi pi-shopping-cart text-2xl"></i>
         </Link>
