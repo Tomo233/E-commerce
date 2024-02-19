@@ -66,7 +66,7 @@ function CheckOut() {
           </div>
         </div>
 
-        <div className="flex justify-between items-center gap-5">
+        <div className="flex justify-between items-center gap-5 mb-8">
           <input
             type="text"
             placeholder="Coupon Code"
@@ -74,7 +74,9 @@ function CheckOut() {
           />
           <Button type="primary">Apply Coupon</Button>
         </div>
-        <Button type="primary">Place Order</Button>
+        <button className="text-md font-medium rounded-sm px-12 py-4 bg-red-500  text-slate-200">
+          Place Order
+        </button>
       </div>
     </section>
   );
