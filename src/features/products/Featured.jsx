@@ -22,7 +22,7 @@ function Featured() {
             </p>
             <Link
               className="text-stone-100 underline font-semibold"
-              to="/category/men's clothing"
+              to="/products/category/men's clothing"
             >
               Shop Now
             </Link>
@@ -44,7 +44,7 @@ function Featured() {
             </p>
             <Link
               className="text-stone-100 underline font-semibold"
-              to="/category/women's clothing"
+              to="/products/category/women's clothing"
             >
               Shop Now
             </Link>
@@ -73,7 +73,7 @@ function Featured() {
               </p>
               <Link
                 className="text-stone-100 underline font-semibold"
-                to="/category/electronics"
+                to="/products/category/electronics"
               >
                 Shop Now
               </Link>
@@ -95,7 +95,7 @@ function Featured() {
               </p>
               <Link
                 className="text-stone-100 underline font-semibold"
-                to="/category/jewelery"
+                to="/products/category/jewelery"
               >
                 Shop Now
               </Link>

@@ -15,28 +15,28 @@ function Categories() {
       <div className="flex gap-5 justify-between mt-10">
         <Link
           className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300"
-          to="/category/men's clothing"
+          to="/products/category/men's clothing"
         >
           <img src={manClothes} className="w-14" alt="" />
           <p>Man’s</p>
         </Link>
         <Link
           className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300"
-          to="/category/electronics"
+          to="/products/category/electronics"
         >
           <img src={cellphone} alt="" />
           <p>Electronics</p>
         </Link>
         <Link
           className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300"
-          to="/category/women's clothing"
+          to="/products/category/women's clothing"
         >
           <img src={womanDress} className="w-14" alt="" />
           <p>Woman’s</p>
         </Link>
         <Link
           className="grid place-items-center gap-y-2 border border-solid px-12 py-8 border-stone-300"
-          to="/category/jewelery"
+          to="/products/category/jewelery"
         >
           <img src={jewelryIcon} alt="" className="w-14" />
           <p>Jewelry</p>

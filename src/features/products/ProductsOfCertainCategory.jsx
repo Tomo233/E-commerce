@@ -4,7 +4,6 @@ import OurItem from "./OurItem";
 
 function ProductsOfCertainCategory() {
   const { category } = useParams();
-  console.log(category);
   const { data: products } = useGetCategoryProductsQuery(
     category.toLowerCase()
   );
