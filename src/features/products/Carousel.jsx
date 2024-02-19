@@ -21,19 +21,18 @@ export default function ResponsiveDemo() {
     const newPrice = product.price - product.price * 0.2;
 
     return (
-      <Link
+      <div
         className="flex items-center flex-col  justify-center mt-10 h-72  max-w-md  cursor-pointer relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        to={`/products/${product.id}`}
       >
-        <div>
+        <Link to={`/products/${product.id}`}>
           <img
             src={product?.image}
             className="w-36 h-36"
             alt={product?.title}
           />
-        </div>
+        </Link>
         <div className="w-56">
           <h4 className="font-medium text-base">{product?.title}</h4>
           <div className="flex gap-5 my-2">
@@ -46,7 +45,7 @@ export default function ResponsiveDemo() {
         </div>
 
         <AddToCart product={product} isHovered={isHovered} />
-      </Link>
+      </div>
     );
   };
 
