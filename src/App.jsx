@@ -10,7 +10,7 @@ import Cart from "./features/cart/Cart";
 import AllProducts from "./features/products/AllProducts";
 import Product from "./features/products/Product";
 import ProductsOfCertainCategory from "./features/products/ProductsOfCertainCategory";
-import CheckOut from "./features/products/CheckOut";
+import CheckOut from "./features/order/CheckOut";
 
 // Define your route configuration
 const router = createBrowserRouter([
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         element: <ProductsOfCertainCategory />,
       },
       {
-        path: "/products/checkOut",
+        path: "/order/checkOut",
         element: <CheckOut />,
       },
     ],
