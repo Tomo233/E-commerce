@@ -2,7 +2,7 @@ import joystick from "../../assets/joystick.png";
 import monitor from "../../assets/monitor.png";
 import Button from "../../components/Button";
 
-function CheckOut() {
+function CreateOrder() {
   return (
     <section className="mt-10 flex justify-between pb-40">
       <div className="w-1/3">
@@ -82,4 +82,4 @@ function CheckOut() {
   );
 }
 
-export default CheckOut;
+export default CreateOrder;
