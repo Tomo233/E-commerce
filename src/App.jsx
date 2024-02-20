@@ -12,16 +12,11 @@ import Product from "./features/products/Product";
 import ProductsOfCertainCategory from "./features/products/ProductsOfCertainCategory";
 import CheckOut from "./features/order/CheckOut";
 
-// Define your route configuration
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
     errorElement: <Error />,
     children: [
-      {
-        path: "/home",
-        element: <Home />,
-      },
       {
         path: "/contact",
         element: <Contact />,
@@ -36,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/",
-        element: <CheckOut />,
+        element: <Home />,
       },
       {
         path: "/cart",
@@ -55,7 +50,7 @@ const router = createBrowserRouter([
         element: <ProductsOfCertainCategory />,
       },
       {
-        path: "/order/checkOut",
+        path: "/order/checkout",
         element: <CheckOut />,
       },
     ],
