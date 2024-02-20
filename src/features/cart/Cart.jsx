@@ -3,6 +3,7 @@ import Button from "../../components/Button";
 import CartItem from "./CartItem";
 import { getCartProducts, getTotalPrice } from "./CartSlice";
 import EmptyCart from "./EmptyCart";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const products = useSelector(getCartProducts);
@@ -60,7 +61,11 @@ function Cart() {
                 <p className="font-medium">Total</p>
                 <p>${totalPrice.toFixed(2)}</p>
               </div>
-              <Button type="checkout">Procees to checkout</Button>
+              <Link to="/order/checkout">
+                <button className="text-md font-medium rounded-sm px-12 py-4 bg-red-500 text-slate-200 flex mt-5">
+                  Procees to checkout
+                </button>
+              </Link>
             </div>
           </div>
         </div>
