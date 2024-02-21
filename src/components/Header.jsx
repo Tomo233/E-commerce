@@ -1,9 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import Line from "./Line";
 import { useState } from "react";
+import SearchedResults from "../features/products/SearchedResults";
 
 function Header() {
   const [query, setQuery] = useState("");
+
   return (
     <header className="flex justify-between h-20 items-center	 relative mx-auto w-5/6">
       <div>
@@ -27,7 +29,7 @@ function Header() {
           </NavLink>
         </ul>
       </div>
-      <div className="flex justify-between gap-2 items-center">
+      <div className="flex justify-between gap-2 items-center relative">
         <input
           type="search"
           placeholder="what are you looking for?"
@@ -35,6 +37,7 @@ function Header() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
+        {!query && <SearchedResults />}
         <Link to="/cart">
           <i className="pi pi-shopping-cart text-2xl"></i>
         </Link>
