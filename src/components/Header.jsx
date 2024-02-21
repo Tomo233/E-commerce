@@ -1,11 +1,30 @@
 import { Link, NavLink } from "react-router-dom";
 import Line from "./Line";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchedResults from "../features/products/SearchedResults";
+import { useGetAllProductsQuery } from "../features/api/apiSlice";
 
 function Header() {
   const [query, setQuery] = useState("");
+  const { data: products } = useGetAllProductsQuery();
+  const [searchedProducts, setSearchProducts] = useState(new Set());
+  const searchedItem = products?.find((product) =>
+    product?.title
+      .toLowerCase()
+      .includes(query.replace(/\s+/g, " ").trim().toLowerCase())
+  );
 
+  useEffect(
+    function () {
+      if (!searchedItem) return;
+      if (!query) setSearchProducts(new Set());
+
+      setSearchProducts(
+        (searchedProduct) => new Set([...searchedProduct, searchedItem])
+      );
+    },
+    [searchedItem, query]
+  );
   return (
     <header className="flex justify-between h-20 items-center	 relative mx-auto w-5/6">
       <div>
@@ -37,7 +56,7 @@ function Header() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        {!query && <SearchedResults />}
+        <SearchedResults products={searchedProducts} />
         <Link to="/cart">
           <i className="pi pi-shopping-cart text-2xl"></i>
         </Link>
