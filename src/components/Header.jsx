@@ -56,7 +56,7 @@ function Header() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <SearchedResults products={searchedProducts} />
+        {query && <SearchedResults products={searchedProducts} />}
         <Link to="/cart">
           <i className="pi pi-shopping-cart text-2xl"></i>
         </Link>
