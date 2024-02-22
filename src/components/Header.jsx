@@ -1,17 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
 import Line from "./Line";
 import { useEffect, useState } from "react";
-import SearchedResults from "../features/products/SearchedResults";
 import { useGetAllProductsQuery } from "../features/api/apiSlice";
+import SearchedResults from "../features/products/SearchedResults";
 
 function Header() {
   const [query, setQuery] = useState("");
   const { data: products } = useGetAllProductsQuery();
-  const [searchedProducts, setSearchProducts] = useState(new Set());
+  const [searchedProducts, setSearchProducts] = useState([]);
   const searchedItem = products?.find((product) =>
     product?.title
       .toLowerCase()
-      .includes(query.replace(/\s+/g, " ").trim().toLowerCase())
+      .includes(
+        query.replace(/\s+/g, " ").trim().toLowerCase() ||
+          product?.description
+            .toLowerCase()
+            .includes(query.replace(/\s+/g, " ").trim().toLowerCase())
+      )
   );
 
   useEffect(
@@ -19,12 +24,14 @@ function Header() {
       if (!searchedItem) return;
       if (!query) setSearchProducts(new Set());
 
-      setSearchProducts(
-        (searchedProduct) => new Set([...searchedProduct, searchedItem])
-      );
+      setSearchProducts((searchedProduct) => [
+        ...searchedProduct,
+        searchedItem,
+      ]);
     },
     [searchedItem, query]
   );
+
   return (
     <header className="flex justify-between h-20 items-center	 relative mx-auto w-5/6">
       <div>
@@ -56,7 +63,7 @@ function Header() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        {query && <SearchedResults products={searchedProducts} />}
+        {query && <SearchedResults products={new Set(searchedProducts)} />}
         <Link to="/cart">
           <i className="pi pi-shopping-cart text-2xl"></i>
         </Link>
