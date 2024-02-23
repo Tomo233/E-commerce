@@ -1,35 +1,29 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import Line from "./Line";
 import { useEffect, useState } from "react";
-import { useGetAllProductsQuery } from "../features/api/apiSlice";
 import SearchedResults from "../features/products/SearchedResults";
+import { useGetAllProductsQuery } from "../features/api/apiSlice";
 
 function Header() {
   const [query, setQuery] = useState("");
   const { data: products } = useGetAllProductsQuery();
-  const [searchedProducts, setSearchProducts] = useState([]);
-  const searchedItem = products?.find((product) =>
-    product?.title
-      .toLowerCase()
-      .includes(
-        query.replace(/\s+/g, " ").trim().toLowerCase() ||
-          product?.description
-            .toLowerCase()
-            .includes(query.replace(/\s+/g, " ").trim().toLowerCase())
-      )
+  const { productId } = useParams();
+
+  const searchedProducts = products?.filter(
+    (product) =>
+      product?.title
+        .toLowerCase()
+        .includes(query.replace(/\s+/g, " ").trim().toLowerCase()) ||
+      product?.category
+        .toLowerCase()
+        .includes(query.replace(/\s+/g, " ").trim().toLowerCase())
   );
 
   useEffect(
     function () {
-      if (!searchedItem) return;
-      if (!query) setSearchProducts(new Set());
-
-      setSearchProducts((searchedProduct) => [
-        ...searchedProduct,
-        searchedItem,
-      ]);
+      if (productId) setQuery("");
     },
-    [searchedItem, query]
+    [productId]
   );
 
   return (
@@ -63,7 +57,7 @@ function Header() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        {query && <SearchedResults products={new Set(searchedProducts)} />}
+        {query && <SearchedResults products={searchedProducts} />}
         <Link to="/cart">
           <i className="pi pi-shopping-cart text-2xl"></i>
         </Link>
