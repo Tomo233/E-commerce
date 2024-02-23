@@ -22,9 +22,6 @@
   @apply text-xl;
 }
 
-/* .p-carousel-items-container {
-  @apply flex items-center;
-} */
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 18px;
@@ -34,10 +31,4 @@
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
   overflow: visible;
   cursor: pointer;
-}
-
-.box-shadow-custom {
-  box-shadow: inset 0 0 35px 5px rgba(0, 0, 0, 0.25),
-    inset 0 2px 1px 1px rgba(255, 255, 255, 0.9),
-    inset 0 -2px 1px rgba(0, 0, 0, 0.25);
 }

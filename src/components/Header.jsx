@@ -49,15 +49,17 @@ function Header() {
           </NavLink>
         </ul>
       </div>
-      <div className="flex justify-between gap-2 items-center relative">
-        <input
-          type="search"
-          placeholder="what are you looking for?"
-          className="w-56 h-10  bg-[#F5F5F5] font-semibold text-sm	text-center outline-none"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        {query && <SearchedResults products={searchedProducts} />}
+      <div className="flex justify-between gap-2 items-center">
+        <div className="relative">
+          <input
+            type="search"
+            placeholder="what are you looking for?"
+            className="w-56 h-10  bg-[#F5F5F5] font-semibold text-sm	text-center outline-none"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          {query && <SearchedResults products={searchedProducts} />}
+        </div>
         <Link to="/cart">
           <i className="pi pi-shopping-cart text-2xl"></i>
         </Link>
