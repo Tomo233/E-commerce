@@ -1,8 +1,11 @@
-import joystick from "../../assets/joystick.png";
-import monitor from "../../assets/monitor.png";
+import { useSelector } from "react-redux";
 import Button from "../../components/Button";
+import { getCartProducts } from "../cart/CartSlice";
+import OrderItem from "./OrderItem";
 
 function CreateOrder() {
+  const products = useSelector(getCartProducts);
+  console.log(products);
   return (
     <section className="mt-10 flex justify-between pb-40">
       <div className="w-1/3">
@@ -27,22 +30,11 @@ function CreateOrder() {
           <input type="email" required className="bg-stone-200 py-3" />
         </form>
       </div>
-      <div className="grid place-items-start w-1/3 ">
-        <div className="flex items-center justify-between w-full mb-5">
-          <div className="flex items-center gap-5">
-            <img src={joystick} alt="gamepad" />
-            <h3>H1 GamePad</h3>
-          </div>
-
-          <p>$650</p>
-        </div>
-
-        <div className="flex items-center justify-between w-full mb-5">
-          <div className="flex items-center gap-5">
-            <img src={monitor} alt="monitor" />
-            <h3>LCD Monitor</h3>
-          </div>
-          <p>$1100</p>
+      <div className="grid place-items-start w-1/3">
+        <div>
+          {products.map((item) => (
+            <OrderItem product={item} key={item.id} />
+          ))}
         </div>
 
         <div className="w-full">

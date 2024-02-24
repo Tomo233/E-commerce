@@ -72,7 +72,7 @@ function Cart() {
                 <p className="font-medium">Total</p>
                 <p>${totalPrice.toFixed(2)}</p>
               </div>
-              <Link to="/order/checkout">
+              <Link to="/order/createOrder">
                 <button className="text-md font-medium rounded-sm px-12 py-4 bg-red-500 text-slate-200 flex mt-5">
                   Procees to checkout
                 </button>
