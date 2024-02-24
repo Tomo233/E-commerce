@@ -1,22 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/Button";
 import CartItem from "./CartItem";
-import { getCartProducts, getTotalPrice, setTotalPrice } from "./CartSlice";
+import {
+  getCartProducts,
+  getSubTotalPrice,
+  getTotalPrice,
+  setTotalPrice,
+} from "./CartSlice";
 import EmptyCart from "./EmptyCart";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 function Cart() {
   const products = useSelector(getCartProducts);
-  const subTotalPrice = useSelector(getTotalPrice);
-  const twentyPercentOfPrice =
-    subTotalPrice > 1000 ? Math.round(Number(subTotalPrice * 0.2)) : 0;
-  const totalPrice = subTotalPrice + twentyPercentOfPrice;
+  const subTotalPrice = useSelector(getSubTotalPrice);
+  const totalPrice = useSelector(getTotalPrice);
   const dispatch = useDispatch();
 
   useEffect(
     function () {
-      dispatch(setTotalPrice(+subTotalPrice.toFixed(2)));
+      dispatch(setTotalPrice(+subTotalPrice?.toFixed(2)));
     },
     [dispatch, subTotalPrice]
   );
@@ -63,7 +66,7 @@ function Cart() {
               </div>
               <div className="flex justify-between border-b border-stone-900 mb-5">
                 <p className="font-medium mb-3">Shipping</p>
-                <p>${twentyPercentOfPrice}</p>
+                <p>${totalPrice > 1000 ? Math.floor(totalPrice * 0.2) : 0}</p>
               </div>
               <div className="flex justify-between">
                 <p className="font-medium">Total</p>
