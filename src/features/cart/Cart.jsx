@@ -1,17 +1,25 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../components/Button";
 import CartItem from "./CartItem";
-import { getCartProducts, getTotalPrice } from "./CartSlice";
+import { getCartProducts, getTotalPrice, setTotalPrice } from "./CartSlice";
 import EmptyCart from "./EmptyCart";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 function Cart() {
   const products = useSelector(getCartProducts);
-
   const subTotalPrice = useSelector(getTotalPrice);
   const twentyPercentOfPrice =
     subTotalPrice > 1000 ? Math.round(Number(subTotalPrice * 0.2)) : 0;
   const totalPrice = subTotalPrice + twentyPercentOfPrice;
+  const dispatch = useDispatch();
+
+  useEffect(
+    function () {
+      dispatch(setTotalPrice(+subTotalPrice.toFixed(2)));
+    },
+    [dispatch, subTotalPrice]
+  );
 
   if (!products.length) return <EmptyCart />;
 
