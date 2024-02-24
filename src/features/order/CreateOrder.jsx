@@ -1,11 +1,16 @@
 import { useSelector } from "react-redux";
 import Button from "../../components/Button";
-import { getCartProducts } from "../cart/CartSlice";
+import {
+  getCartProducts,
+  getSubTotalPrice,
+  getTotalPrice,
+} from "../cart/CartSlice";
 import OrderItem from "./OrderItem";
 
 function CreateOrder() {
   const products = useSelector(getCartProducts);
-  console.log(products);
+  const subTotalPrice = useSelector(getSubTotalPrice);
+  const totalPrice = useSelector(getTotalPrice);
   return (
     <section className="mt-10 flex justify-between pb-40">
       <div className="w-1/3">
@@ -31,7 +36,7 @@ function CreateOrder() {
         </form>
       </div>
       <div className="grid place-items-start w-1/3">
-        <div>
+        <div className="max-h-96 overflow-y-scroll border-b border-stone-900 mb-3">
           {products.map((item) => (
             <OrderItem product={item} key={item.id} />
           ))}
@@ -41,15 +46,17 @@ function CreateOrder() {
           <div className="py-10">
             <div className="flex justify-between  border-b border-stone-900 mb-5">
               <p className="font-medium mb-3">Subtotal</p>
-              <p>$1750</p>
+              <p>${subTotalPrice.toFixed(2)}</p>
             </div>
             <div className="flex justify-between border-b border-stone-900 mb-5">
               <p className="font-medium mb-3">Shipping</p>
-              <p>Free</p>
+              <p>
+                ${subTotalPrice > 1000 ? Math.round(subTotalPrice * 0.2) : 0}
+              </p>
             </div>
             <div className="flex justify-between">
               <p className="font-medium">Total</p>
-              <p>$1750</p>
+              <p>${totalPrice.toFixed(2)}</p>
             </div>
             <div className="flex gap-5 mt-5">
               <input type="checkbox" disabled checked />
