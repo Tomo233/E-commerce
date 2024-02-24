@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cart: JSON.parse(localStorage.getItem("userCart")) || [], // Load from local storage initially
-  totalPrice: 1,
+  totalPrice: JSON.parse(localStorage.getItem("totalPrice")) || 0,
 };
 
 const cartSlice = createSlice({
@@ -26,9 +26,12 @@ const cartSlice = createSlice({
       }
     },
     setTotalPrice(state, action) {
-      action.payload > 1000
-        ? (state.totalPrice = action.payload + action.payload * 0.2)
-        : (state.totalPrice = action.payload);
+      const price =
+        action.payload > 1000
+          ? action.payload + action.payload * 0.2
+          : action.payload;
+      state.totalPrice = price;
+      localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice)); // Update local storage
     },
   },
 });
