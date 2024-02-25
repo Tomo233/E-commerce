@@ -1,16 +1,27 @@
-import { useSelector } from "react-redux";
-import Button from "../../components/Button";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  applyCoupon,
   getCartProducts,
+  getCouponMessage,
   getSubTotalPrice,
   getTotalPrice,
 } from "../cart/CartSlice";
 import OrderItem from "./OrderItem";
+import { useState } from "react";
 
 function CreateOrder() {
   const products = useSelector(getCartProducts);
   const subTotalPrice = useSelector(getSubTotalPrice);
   const totalPrice = useSelector(getTotalPrice);
+  const couponMessage = useSelector(getCouponMessage);
+  console.log(couponMessage);
+  const [coupon, setCoupon] = useState("");
+  const dispatch = useDispatch();
+
+  const handleApplyCoupon = function () {
+    dispatch(applyCoupon(coupon.toLowerCase()));
+  };
+
   return (
     <section className="mt-10 flex justify-between pb-40">
       <div className="w-1/3">
@@ -70,12 +81,22 @@ function CreateOrder() {
             type="text"
             placeholder="Coupon Code"
             className="border border-slate-400 text-center h-14 w-52 rounded-sm"
+            value={coupon}
+            onChange={(e) => setCoupon(e.target.value)}
           />
-          <Button type="primary">Apply Coupon</Button>
+          <button
+            className="text-md font-medium rounded-sm px-12 py-4 bg-red-500  text-slate-200"
+            onClick={handleApplyCoupon}
+          >
+            Apply Coupon
+          </button>
         </div>
-        <button className="text-md font-medium rounded-sm px-12 py-4 bg-red-500  text-slate-200">
-          Place Order
-        </button>
+        <p className="text-red-500 font-medium mb-3">{couponMessage}</p>
+        <div>
+          <button className="text-md font-medium rounded-sm px-12 py-4 bg-red-500  text-slate-200">
+            Place Order
+          </button>
+        </div>
       </div>
     </section>
   );

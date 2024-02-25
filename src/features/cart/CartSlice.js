@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cart: JSON.parse(localStorage.getItem("userCart")) || [], // Load from local storage initially
   totalPrice: JSON.parse(localStorage.getItem("totalPrice")) || 0,
+  coupons: ["A12T", "GT15", "TB05"],
+  couponMessage: "",
 };
 
 const cartSlice = createSlice({
@@ -33,6 +35,19 @@ const cartSlice = createSlice({
       state.totalPrice = price;
       localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice)); // Update local storage
     },
+    applyCoupon(state, action) {
+      const couponCode = state.coupons.find(
+        (coupon) => action.payload.toLowerCase() === coupon.toLowerCase()
+      );
+
+      if (couponCode) {
+        state.totalPrice = state.totalPrice - state.totalPrice * 0.1;
+        state.couponMessage =
+          "Great news! 🎉 Thanks to your coupon, you're enjoying a 10% discount on your total price. Your savings are applied at checkout. Happy shopping!";
+      } else
+        state.couponMessage =
+          "Oops! It seems like the coupon code you entered is incorrect. Double-check the code and try again.";
+    },
   },
 });
 
@@ -46,11 +61,14 @@ export const getSubTotalPrice = (state) =>
 
 export const getTotalPrice = (state) => state.cart.totalPrice;
 
+export const getCouponMessage = (state) => state.cart.couponMessage;
+
 export const {
   addToCart,
   removeFromCart,
   increaseOrDecreaseQuantity,
   setTotalPrice,
+  applyCoupon,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
