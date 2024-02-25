@@ -77,19 +77,42 @@ function CreateOrder() {
         </div>
 
         <div className="flex justify-between items-center gap-5 mb-8">
-          <input
-            type="text"
-            placeholder="Coupon Code"
-            className="border border-slate-400 text-center h-14 w-52 rounded-sm"
-            value={coupon}
-            onChange={(e) => setCoupon(e.target.value)}
-          />
-          <button
-            className="text-md font-medium rounded-sm px-12 py-4 bg-red-500  text-slate-200"
-            onClick={handleApplyCoupon}
-          >
-            Apply Coupon
-          </button>
+          {couponMessage ===
+          "Great news! 🎉 Thanks to your coupon, you're enjoying a 10% discount on your total price. Your savings are applied at checkout. Happy shopping!" ? (
+            <>
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                className="border border-slate-400 text-center h-14 w-52 rounded-sm cursor-not-allowed"
+                value={coupon}
+                onChange={() => setCoupon("")}
+                disabled
+              />
+              <button
+                className="text-md font-medium rounded-sm px-12 py-4 bg-slate-500 text-slate-200 cursor-not-allowed"
+                onClick={handleApplyCoupon}
+                disabled
+              >
+                Apply Coupon
+              </button>
+            </>
+          ) : (
+            <>
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                className="border border-slate-400 text-center h-14 w-52 rounded-sm"
+                value={coupon}
+                onChange={(e) => setCoupon(e.target.value)}
+              />
+              <button
+                className="text-md font-medium rounded-sm px-12 py-4 bg-red-500  text-slate-200"
+                onClick={handleApplyCoupon}
+              >
+                Apply Coupon
+              </button>
+            </>
+          )}
         </div>
         <p className="text-red-500 font-medium mb-3">{couponMessage}</p>
         <div>
