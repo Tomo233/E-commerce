@@ -1,4 +1,8 @@
 import about from "../assets/about.png";
+import firstService from "../assets/firstService.png";
+import secondService from "../assets/secondService.png";
+import thirdService from "../assets/thirdService.png";
+import fourthService from "../assets/fourthService.png";
 
 function About() {
   return (
@@ -23,8 +27,37 @@ function About() {
         </div>
         <img src={about} alt="about" />
       </div>
-      <div>
-        <div></div>
+      <div className="flex justify-between items-center mt-20">
+        <div className="border border-stone-300 w-64 h-52 py-3">
+          <div className="grid place-items-center mt-5">
+            <img src={firstService} alt="" />
+            <h3 className="text-2xl font-semibold">10.5K</h3>
+            <p className="font-medium mt-1">Sallers active our site</p>
+          </div>
+        </div>
+        <div className="border border-stone-300 w-64 h-52 py-3 bg-red-500">
+          <div className="grid place-items-center mt-5">
+            <img src={secondService} alt="" />
+            <h3 className="text-2xl font-semibold text-stone-100">33K</h3>
+            <p className="font-medium text-stone-100 mt-1">
+              Mopnthly Produduct Sale
+            </p>
+          </div>
+        </div>
+        <div className="border border-stone-300 w-64 h-52 py-3">
+          <div className="grid place-items-center mt-5">
+            <img src={thirdService} alt="" />
+            <h3 className="text-2xl font-semibold">45.5K</h3>
+            <p className="font-medium mt-1">Customer active in our site</p>
+          </div>
+        </div>
+        <div className="border border-stone-300 w-64 h-52 py-3">
+          <div className="grid place-items-center mt-5">
+            <img src={fourthService} alt="" />
+            <h3 className="text-2xl font-semibold ">25K</h3>
+            <p className="font-medium mt-1">Anual gross sale in our site</p>
+          </div>
+        </div>
       </div>
     </section>
   );
