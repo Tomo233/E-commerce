@@ -41,19 +41,10 @@ function Cart() {
             <CartItem key={product.id} product={product} />
           ))}
         </ul>
-        <Button type="white" to="/products">
-          Return To Shop
-        </Button>
         <div className="flex justify-between">
-          <div className="flex mt-10 gap-5">
-            <input
-              type="text"
-              placeholder="Coupon Code"
-              className="border border-slate-400 text-center h-14 px-6 rounded-sm"
-            />
-            <Button type="primary">Apply Coupon</Button>
-          </div>
-
+          <Button type="white" to="/products">
+            Return To Shop
+          </Button>
           <div className="max-w-md border mb-5 border-stone-900 rounded-sm">
             <div className="p-10">
               <h3 className="text-xl font-semibold  mb-1">Cart Total</h3>
