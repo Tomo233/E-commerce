@@ -1,4 +1,5 @@
 import about from "../assets/about.png";
+
 function About() {
   return (
     <section className="pb-40">
@@ -21,6 +22,9 @@ function About() {
           </div>
         </div>
         <img src={about} alt="about" />
+      </div>
+      <div>
+        <div></div>
       </div>
     </section>
   );
