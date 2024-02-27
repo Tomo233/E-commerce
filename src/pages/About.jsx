@@ -65,14 +65,14 @@ function About() {
           </div>
         </div>
       </div>
-      <div>
-        <div>
+      <div className="mt-24">
+        <div className="max-w-96">
           <img src={tom} alt="image" />
-          <h3>Tom Cruise</h3>
-          <p>Founder & Chaiman</p>
-          <div className="flex justify-between">
-            <img src={instagram} alt="" />
+          <h3 className="text-3xl font-semibold mt-3">Tom Cruise</h3>
+          <p className="tracking-wider font-medium">Founder & Chaiman</p>
+          <div className="flex gap-5 mt-2">
             <img src={twt} alt="" />
+            <img src={instagram} alt="" />
             <img src={linkedin} alt="" />
           </div>
         </div>
