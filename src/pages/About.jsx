@@ -3,6 +3,9 @@ import firstService from "../assets/firstService.png";
 import secondService from "../assets/secondService.png";
 import thirdService from "../assets/thirdService.png";
 import fourthService from "../assets/fourthService.png";
+import tom from "../assets/tom.png";
+import emma from "../assets/emma.png";
+import will from "../assets/will.png";
 
 function About() {
   return (
