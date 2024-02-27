@@ -6,6 +6,9 @@ import fourthService from "../assets/fourthService.png";
 import tom from "../assets/tom.png";
 import emma from "../assets/emma.png";
 import will from "../assets/will.png";
+import instagram from "../assets/instagram.png";
+import twt from "../assets/twt.png";
+import linkedin from "../assets/linkedin.png";
 
 function About() {
   return (
@@ -62,7 +65,18 @@ function About() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div>
+        <div>
+          <img src={tom} alt="image" />
+          <h3>Tom Cruise</h3>
+          <p>Founder & Chaiman</p>
+          <div className="flex justify-between">
+            <img src={instagram} alt="" />
+            <img src={twt} alt="" />
+            <img src={linkedin} alt="" />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
