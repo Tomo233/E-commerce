@@ -65,11 +65,31 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="mt-24">
+      <div className="mt-24 flex justify-between">
         <div className="max-w-96">
           <img src={tom} alt="image" />
           <h3 className="text-3xl font-semibold mt-3">Tom Cruise</h3>
           <p className="tracking-wider font-medium">Founder & Chaiman</p>
+          <div className="flex gap-5 mt-2">
+            <img src={twt} alt="" />
+            <img src={instagram} alt="" />
+            <img src={linkedin} alt="" />
+          </div>
+        </div>
+        <div className="max-w-96">
+          <img src={emma} alt="image" />
+          <h3 className="text-3xl font-semibold mt-3">Emma Watson</h3>
+          <p className="tracking-wider font-medium">Managing Director</p>
+          <div className="flex gap-5 mt-2">
+            <img src={twt} alt="" />
+            <img src={instagram} alt="" />
+            <img src={linkedin} alt="" />
+          </div>
+        </div>
+        <div className="max-w-96">
+          <img src={will} alt="image" />
+          <h3 className="text-3xl font-semibold mt-3">Will Smith</h3>
+          <p className="tracking-wider font-medium">Product Designer</p>
           <div className="flex gap-5 mt-2">
             <img src={twt} alt="" />
             <img src={instagram} alt="" />
