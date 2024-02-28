@@ -1,3 +1,6 @@
+import call from "../assets/call.png";
+import mail from "../assets/mail.png";
+
 function Contact() {
   return (
     <section>
