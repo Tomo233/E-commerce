@@ -9,11 +9,12 @@ import will from "../assets/will.png";
 import instagram from "../assets/instagram.png";
 import twt from "../assets/twt.png";
 import linkedin from "../assets/linkedin.png";
+import ProductsDelivery from "../features/products/ProductsDelivery";
 
 function About() {
   return (
-    <section className="pb-20">
-      <div className="flex justify-between items-center mt-16">
+    <section>
+      <div className="flex justify-between items-center my-20">
         <div>
           <h2 className="text-5xl font-semibold">Our Story</h2>
           <div className="max-w-lg mt-8">
@@ -33,7 +34,7 @@ function About() {
         </div>
         <img src={about} alt="about" />
       </div>
-      <div className="flex justify-between items-center mt-24">
+      <div className="flex justify-between items-center">
         <div className="border border-stone-300 w-64 h-52 py-3">
           <div className="grid place-items-center mt-5">
             <img src={firstService} alt="" />
@@ -41,7 +42,7 @@ function About() {
             <p className="font-medium mt-1">Sallers active our site</p>
           </div>
         </div>
-        <div className="border border-stone-300 w-64 h-52 py-3 bg-red-500">
+        <div className="border border-stone-300 w-64 h-52 py-3 bg-red-500 my-32">
           <div className="grid place-items-center mt-5">
             <img src={secondService} alt="" />
             <h3 className="text-2xl font-semibold text-stone-100">33K</h3>
@@ -65,7 +66,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="mt-24 flex justify-between">
+      <div className="flex justify-between mb-36">
         <div className="max-w-96">
           <img src={tom} alt="image" />
           <h3 className="text-3xl font-semibold mt-3">Tom Cruise</h3>
@@ -97,6 +98,7 @@ function About() {
           </div>
         </div>
       </div>
+      <ProductsDelivery />
     </section>
   );
 }
