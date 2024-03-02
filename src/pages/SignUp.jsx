@@ -4,7 +4,7 @@ import google from "../assets/googleLogin.png";
 
 function SignUp() {
   return (
-    <section className="flex justify-between items-center">
+    <section className="flex justify-between items-center py-16">
       <img src={image} alt="" />
       <div className="grid gap-y-3 w-1/3">
         <h2 className="text-3xl font-semibold">Create an account</h2>
@@ -12,17 +12,17 @@ function SignUp() {
         <input
           type="text"
           placeholder="Name"
-          className="bg-transparent h-12 border-b border-stone-900 text-left outline-none"
+          className="bg-transparent h-12 border-b border-stone-400 text-left outline-none"
         />
         <input
           type="email"
           placeholder="Email"
-          className="bg-transparent h-12 border-b border-stone-900 text-left outline-none"
+          className="bg-transparent h-12 border-b border-stone-400 text-left outline-none"
         />
         <input
           type="password"
           placeholder="Password"
-          className="bg-transparent h-12 border-b border-stone-900 text-left outline-none"
+          className="bg-transparent h-12 border-b border-stone-400 text-left outline-none"
         />
         <button className="bg-red-500 py-4 mt-5 mb-2 rounded-sm text-stone-100 font-medium">
           Create Account
