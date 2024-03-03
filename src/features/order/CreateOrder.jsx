@@ -7,20 +7,37 @@ import {
   getTotalPrice,
 } from "../cart/CartSlice";
 import OrderItem from "./OrderItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const isValidPhone = (str) =>
+  /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
+    str
+  );
 
 function CreateOrder() {
   const products = useSelector(getCartProducts);
   const subTotalPrice = useSelector(getSubTotalPrice);
   const totalPrice = useSelector(getTotalPrice);
   const couponMessage = useSelector(getCouponMessage);
-  console.log(couponMessage);
   const [coupon, setCoupon] = useState("");
+  const [phoneValue, setPhoneValue] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const dispatch = useDispatch();
 
   const handleApplyCoupon = function () {
     dispatch(applyCoupon(coupon.toLowerCase()));
   };
+
+  useEffect(
+    function () {
+      setPhoneError("");
+      if (phoneValue === "") return;
+      !isValidPhone(phoneValue)
+        ? setPhoneError("Phone Is not Valid Check It !")
+        : setPhoneError("");
+    },
+    [phoneValue]
+  );
 
   return (
     <section className="mt-10 flex justify-between pb-40">
@@ -40,7 +57,16 @@ function CreateOrder() {
           <input type="text" required className="bg-stone-200 py-3" />
 
           <label className="text-stone-500">Phone Number*</label>
-          <input type="text" required className="bg-stone-200 py-3" />
+          <input
+            type="text"
+            required
+            className="bg-stone-200 py-3"
+            value={phoneValue}
+            onChange={(e) => setPhoneValue(e.target.value)}
+          />
+          <span className="text-sm font-semibold text-red-500">
+            {phoneError}
+          </span>
 
           <label className="text-stone-500">Email Address*</label>
           <input type="email" required className="bg-stone-200 py-3" />
