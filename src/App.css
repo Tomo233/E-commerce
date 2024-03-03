@@ -1,0 +1,30 @@
+.active {
+  @apply border-b border-neutral-700;
+}
+
+.p-menuitem {
+  @apply pb-4;
+}
+
+.p-carousel-container {
+  @apply overflow-hidden;
+}
+
+.p-rating-icon {
+  @apply text-yellow-500;
+}
+
+.p-menuitem-content span {
+  @apply text-xl;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+  overflow: visible;
+  cursor: pointer;
+}
